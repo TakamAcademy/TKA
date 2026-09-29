@@ -212,7 +212,11 @@ iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .mte-slider-prev{left:9px}.mte-slider-next{right:9px}
   .mte-section{padding:55px 0}
   .mte-grid,.mte-contact-grid,.mte-profile,.mte-footer-grid{grid-template-columns:1fr}
-  .mte-profile-img{height:330px}
+.mte-profile-img{
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+}
   .mte-gallery{grid-template-columns:repeat(2,1fr)}
   .mte-gallery-item{height:145px}
   .mte-modal{padding:0}
