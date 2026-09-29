@@ -2213,14 +2213,94 @@ body.page-template-front-page .book-slider-wrapper,
     }
 }
 
+/* ১. মূল কন্টেইনার এবং সেকশন ফুল-উইডথ করা */
+#mteMain,
+section,
+.mte-container,
+.mte-book-slider-section,
+.mte-books-section {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* ২. বইয়ের ভিতরের কার্ড/কন্টেন্ট সেকশন ছড়ানো */
+.mte-book-card,
+.mte-slider-wrapper,
+.mte-slide-content {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* ৩. ব্যাকগ্রাউন্ড কালার পুরো স্ক্রিনে পাওয়ার জন্য */
+.mte-books-section,
+[class*="book"] {
+  background-size: cover;
+  width: 100% !important;
+}
+/* বুক স্লাইডারের বাইরের ব্যাকগ্রাউন্ড সেকশন */
+.book-slider-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-top: 50px !important;
+  padding-bottom: 70px !important; /* নিচে পর্যাপ্ত ব্যাকগ্রাউন্ড স্পেস বজায় রাখবে */
+  margin-bottom: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* স্লাইডারের ভেতরের কন্টেইনার */
+.book-slider-container {
+  margin-bottom: 0 !important; /* ভেতরের বক্সের অতিরিক্ত মার্জিন তুলে দেবে */
+}
+
+/* ==========================================
+   PERFECT BOOK SLIDER BACKGROUND FIX
+   ========================================== */
+
+/* ১. বাইরের সেকশনে ডিপ সবুজ ব্যাকগ্রাউন্ড ও নিচে প্যাডিং বাড়ানো */
+.book-slider-wrapper {
+  background-color: #051a0e !important; /* স্লাইডারের ডিপ সবুজ রঙ */
+  padding-top: 40px !important;
+  padding-bottom: 90px !important; /* নিচে যতটুকু ব্যাকগ্রাউন্ড বাড়ানো দরকার (কম/বেশি করতে পারেন) */
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* ২. ভেতরের স্লাইডার কন্টেইনারের ফিক্সড স্ট্রাকচার ঠিক রাখা (যাতে ভেতরে না ভাঙে) */
+.book-slider-container {
+  height: 480px !important; /* আসল হাইট ফিরিয়ে আনা হলো */
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+
+
+
 /* =====================================================
    ONLINE COURSE SECTION
    ===================================================== */
 
 .online-course-section {
     padding: 60px 20px;
-    background: #f5f8f6;
+    background: #07442dc9;
+    }
+.online-course-section {
+  background: linear-gradient(135deg, #052e16 0%, #0f5229 100%) !important; /* ডিপ গ্রীন গ্রেডিয়েন্ট */
 }
+
+/* ব্যাকগ্রাউন্ড ডার্ক করলে যদি টেক্সট সাদা করতে চান: */
+.online-course-section .course-section-header h2,
+.online-course-section .course-section-header p {
+  color: #ffffff !important;
+}
+
 
 .course-section-header {
     max-width: 750px;
@@ -2509,4 +2589,439 @@ body.page-template-front-page .book-slider-wrapper,
     .course-meta {
         font-size: 12px;
     }
+}
+
+/* =========================================================
+   WHY CHOOSE US STYLES
+   ========================================================= */
+.why-choose-section {
+  padding: 60px 0;
+  background-color: #ffffff;
+}
+
+.why-choose-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.why-card {
+  background: #f8faf9;
+  border: 1px solid #e2e8e5;
+  border-radius: 16px;
+  padding: 25px 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(6, 77, 59, 0.1);
+  border-color: #064d3b;
+}
+
+.why-icon {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.why-card h3 {
+  color: #064d3b;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.why-card p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* =========================================================
+   FAQ SECTION STYLES
+   ========================================================= */
+.faq-section {
+  padding: 60px 0;
+  background-color: #f5f8f6;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid #e2e8e5;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  padding: 18px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #064d3b;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  user-select: none;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::after {
+  content: "❯";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #c09420;
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-question::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.faq-answer {
+  padding: 0 20px 18px 20px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.7;
+  border-top: 1px dashed #eee;
+}
+
+.faq-answer p {
+  margin: 12px 0 0 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .why-choose-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .why-choose-grid {
+    grid-template-columns: 1fr;
+  }
+  .faq-question {
+    font-size: 15px;
+    padding: 15px;
+  }
+}
+
+
+
+/* =========================================================
+   4. COUNTER SECTION STYLES
+   ========================================================= */
+.counter-section {
+  padding: 50px 0;
+  background: linear-gradient(135deg, #052e16 0%, #0a4d27 100%);
+  color: #ffffff;
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.counter-card {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.counter-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.counter-number {
+  font-size: 36px;
+  font-weight: 800;
+  color: #facc15; /* সোনালী রঙ */
+  margin: 5px 0;
+}
+
+.counter-card p {
+  margin: 0;
+  font-size: 15px;
+  color: #e2e8f0;
+}
+
+
+/* =========================================================
+   5. HADITH & NASIHA STYLES
+   ========================================================= */
+.hadith-section {
+  padding: 50px 0;
+  background-color: #f0fdf4;
+}
+
+.hadith-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-left: 5px solid #052e16;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.hadith-badge {
+  display: inline-block;
+  background: #052e16;
+  color: #ffffff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.hadith-text {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #1e293b;
+  font-weight: 600;
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.hadith-source {
+  color: #16a34a;
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+
+/* =========================================================
+   6. AUDIO SECTION STYLES
+   ========================================================= */
+.audio-section {
+  padding: 60px 0;
+  background-color: #ffffff;
+}
+
+.audio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 900px;
+  margin: 30px auto 0 auto;
+}
+
+.audio-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.audio-info h3 {
+  font-size: 16px;
+  color: #0f172a;
+  margin: 0 0 5px 0;
+}
+
+.audio-info p {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+}
+
+.audio-player {
+  width: 100%;
+  border-radius: 8px;
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .counter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .audio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .counter-grid {
+    grid-template-columns: 1fr;
+  }
+  .hadith-text {
+    font-size: 17px;
+  }
+}
+
+/* =========================================================
+   TESTIMONIAL SLIDER STYLES
+   ========================================================= */
+.testimonial-section {
+  padding: 60px 0;
+  background-color: #f4f7f5;
+  position: relative;
+}
+
+.testimonial-slider-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 35px auto 0 auto;
+  padding: 0 45px;
+}
+
+.testimonial-slider-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding: 10px 5px;
+}
+
+.testimonial-card {
+  min-width: calc(50% - 10px); /* ডেস্কটপে একসাথে ২টি কার্ড দেখাবে */
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 22px;
+  border: 1px solid #e1e9e4;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(5, 46, 22, 0.08);
+  border-color: #052e16;
+}
+
+.testimonial-stars {
+  color: #f59e0b;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.testimonial-text {
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0 0 18px 0;
+}
+
+.testimonial-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+}
+
+.user-avatar img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info h4 {
+  font-size: 15px;
+  color: #0f172a;
+  margin: 0 0 2px 0;
+  font-weight: 700;
+}
+
+.user-info span {
+  font-size: 12px;
+  color: #16a34a;
+}
+
+/* নেভিগেশন বাটনসমূহ */
+.testi-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  background-color: #052e16;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: background 0.3s ease;
+}
+
+.testi-btn:hover {
+  background-color: #c09420;
+}
+
+.testi-prev { left: 0; }
+.testi-next { right: 0; }
+
+/* ডট ইন্ডিকেটর */
+.testi-dots-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.testi-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #cbd5e1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.testi-dot.active {
+  background-color: #052e16;
+  width: 24px;
+  border-radius: 10px;
+}
+
+/* রেসপন্সিভ (মোবাইল) */
+@media (max-width: 650px) {
+  .testimonial-slider-wrapper {
+    padding: 0 35px;
+  }
+  .testimonial-card {
+    min-width: 100%; /* মোবাইলে ১টি করে দেখাবে */
+  }
 }
