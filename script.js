@@ -6565,3 +6565,58 @@ document.addEventListener("keydown", function(event) {
   });
 })();
 
+
+// Testimonials Slider Script
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.getElementById("testiSliderContainer");
+  const prevBtn = document.getElementById("testiPrevBtn");
+  const nextBtn = document.getElementById("testiNextBtn");
+  const dotsContainer = document.getElementById("testiDotsContainer");
+
+  if (!container || !prevBtn || !nextBtn || !dotsContainer) return;
+
+  const cards = container.querySelectorAll(".testimonial-card");
+  let currentIndex = 0;
+
+  // ডট তৈরি করা
+  cards.forEach((_, index) => {
+    const dot = document.createElement("div");
+    dot.classList.add("testi-dot");
+    if (index === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => scrollToSlide(index));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll(".testi-dot");
+
+  function updateDots() {
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === currentIndex);
+    });
+  }
+
+  function scrollToSlide(index) {
+    if (index < 0) index = cards.length - 1;
+    if (index >= cards.length) index = 0;
+
+    currentIndex = index;
+    const cardWidth = cards[0].offsetWidth + 20; // 20px gap
+    container.scrollTo({
+      left: cardWidth * currentIndex,
+      behavior: "smooth"
+    });
+    updateDots();
+  }
+
+  nextBtn.addEventListener("click", () => scrollToSlide(currentIndex + 1));
+  prevBtn.addEventListener("click", () => scrollToSlide(currentIndex - 1));
+
+  // অটো-স্লাইড (প্রতি ৪ সেকেন্ড পর পর)
+  let autoSlide = setInterval(() => scrollToSlide(currentIndex + 1), 4000);
+
+  // মাউস রাখলে অটো-স্লাইড বন্ধ থাকা
+  container.addEventListener("mouseenter", () => clearInterval(autoSlide));
+  container.addEventListener("mouseleave", () => {
+    autoSlide = setInterval(() => scrollToSlide(currentIndex + 1), 4000);
+  });
+});
