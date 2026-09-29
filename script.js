@@ -6523,3 +6523,45 @@ document.addEventListener("keydown", function(event) {
     }
 
 });
+
+
+/* =========================================================
+   HEADER TOUCH + HOME CLICK => SCROLL TO TOP
+   ========================================================= */
+
+(function () {
+  function mteScrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+  // Header-এ টাচ করলে উপরে যাবে, কিন্তু Menu button-এ টাচ করলে
+  // শুধু Menu-এর স্বাভাবিক কাজ হবে।
+  const header = document.getElementById("mteHeader");
+
+  if (header) {
+    header.addEventListener("click", function (e) {
+      if (e.target.closest("#mteMenuToggle")) {
+        return;
+      }
+
+      mteScrollToTop();
+    });
+  }
+
+  // Menu থেকে Home চাপলে উপরে যাবে।
+  document.addEventListener("click", function (e) {
+    const homeLink = e.target.closest('a[href="#home"]');
+
+    if (!homeLink) {
+      return;
+    }
+
+    setTimeout(function () {
+      mteScrollToTop();
+    }, 50);
+  });
+})();
+
