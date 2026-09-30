@@ -4634,3 +4634,51 @@ section,
         animation: none;
     }
 }
+
+/* ===== Quran Button Final Fix ===== */
+
+.quran-read-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  min-width: 170px !important;
+  height: auto !important;
+
+  padding: 13px 22px !important;
+  margin: 0 auto !important;
+
+  gap: 9px !important;
+
+  direction: ltr !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  line-height: 1.2 !important;
+
+  box-sizing: border-box !important;
+}
+
+.quran-read-btn span {
+  display: inline-block !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  line-height: 1.2 !important;
+}
+
+.quran-read-btn i {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  flex-shrink: 0 !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
