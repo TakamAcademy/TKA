@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal Madrasa Teacher & Islamic Education Website">
+<title>মাদ্রাসা শিক্ষক | কুরআন ও ইসলামিক শিক্ষা</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="mte-site" id="mteSite">
+
+<!-- HEADER / MAIN MENU: Logo, Desktop Menu, Mobile Hamburger ও Dropdown -->
+<header class="mte-header" id="mteHeader">
+  <div class="mte-container mte-header-row">
+    <a class="mte-brand" href="#home" data-mte-route>
+      <img class="mte-brand-logo" id="mteBrandLogo" src="" alt="শিক্ষকের প্রোফাইল">
+      <span class="mte-brand-text">
+        <span class="mte-brand-name" id="mteBrandName"></span>
+        <span class="mte-brand-sub" id="mteBrandSub"></span>
+      </span>
+    </a>
+
+    <button class="mte-menu-toggle" id="mteMenuToggle" aria-label="মেনু" aria-expanded="false">☰</button>
+
+<!-- MAIN MENU: প্রতিটি মেনু ও সাবমেনুর পাশে আলাদা আইকন -->
+<nav class="mte-nav" id="mteNav">
+  <ul class="mte-nav-list">
+
+    <!-- হোম -->
+    <li>
+      <a class="mte-nav-link" href="#home" data-mte-route>
+        <span class="mte-menu-icon">⌂</span>
+        <span>হোম</span>
+      </a>
+    </li>
+
+    <!-- আমার সম্পর্কে -->
+    <li>
+      <a class="mte-nav-link" href="#about" data-mte-route>
+        <span class="mte-menu-icon">👤</span>
+        <span>আমার সম্পর্কে</span>
+      </a>
+    </li>
+    
+
+    <!-- শিক্ষা Dropdown -->
+    <li class="mte-dropdown">
+
+      <button class="mte-drop-btn" type="button">
+        <span class="mte-drop-left">
+          <span class="mte-menu-icon">📖</span>
+          <span>শিক্ষা</span>
+        </span>
+        <span class="mte-drop-arrow">⌄</span>
+      </button>
+
+      <ul class="mte-drop-menu">
+
+        <li>
+          <a href="#notes" data-mte-route>
+            <span class="mte-submenu-icon">📝</span>
+            <span>ক্লাস নোট</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#courses" data-mte-route>
+            <span class="mte-submenu-icon">🎓</span>
+            <span>অনলাইন কোর্স</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#quran" data-mte-route>
+            <span class="mte-submenu-icon">📖</span>
+            <span>কুরআন শিক্ষা</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#tajweed" data-mte-route>
+            <span class="mte-submenu-icon">☪</span>
+            <span>তাজবীদ</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#hifz" data-mte-route>
+            <span class="mte-submenu-icon">🌙</span>
+            <span>হিফজ</span>
+          </a>
+        </li>
+
+      </ul>
+    </li>
+
+    <!-- রিসোর্স Dropdown -->
+    <li class="mte-dropdown">
+
+      <button class="mte-drop-btn" type="button">
+        <span class="mte-drop-left">
+          <span class="mte-menu-icon">📚</span>
+          <span>রিসোর্স</span>
+        </span>
+        <span class="mte-drop-arrow">⌄</span>
+      </button>
+
+      <ul class="mte-drop-menu">
+
+        <li>
+          <a href="#books" data-mte-route>
+            <span class="mte-submenu-icon">📕</span>
+            <span>ইসলামিক বই</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#library" data-mte-route>
+            <span class="mte-submenu-icon">📚</span>
+            <span>PDF লাইব্রেরি</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#student-zone" data-mte-route>
+            <span class="mte-submenu-icon">🎒</span>
+            <span>শিক্ষার্থীদের রিসোর্স</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#syllabus" data-mte-route>
+            <span class="mte-submenu-icon">📋</span>
+            <span>সিলেবাস</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#routine" data-mte-route>
+            <span class="mte-submenu-icon">🗓️</span>
+            <span>রুটিন</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#results" data-mte-route>
+            <span class="mte-submenu-icon">🏆</span>
+            <span>ফলাফল</span>
+          </a>
+        </li>
+
+      </ul>
+    </li>
+    
+    
+<!-- আল কুরআনুল কারীম -->
+<li>
+  <a class="mte-nav-link" href="#alquran" data-mte-route>
+    <span class="mte-menu-icon">📖</span>
+    <span>আল কুরআনুল কারীম</span>
+  </a>
+</li>
+    
+    
+    
+    
+    <!-- ব্লগ -->
+    <li>
+      <a class="mte-nav-link" href="#blog" data-mte-route>
+        <span class="mte-menu-icon">✍️</span>
+        <span>ব্লগ</span>
+      </a>
+    </li>
+
+    <!-- গ্যালারি -->
+    <li>
+      <a class="mte-nav-link" href="#gallery" data-mte-route>
+        <span class="mte-menu-icon">🖼️</span>
+        <span>গ্যালারি</span>
+      </a>
+    </li>
+
+    <!-- যোগাযোগ -->
+    <li>
+      <a class="mte-nav-link" href="#contact" data-mte-route>
+        <span class="mte-menu-icon">☎</span>
+        <span>যোগাযোগ</span>
+      </a>
+    </li>
+
+  </ul>
+</nav>
+  </div>
+</header>
+
+<!-- NOTICE MARQUEE: চলমান নোটিশ বার -->
+<div class="mte-marquee-wrap">
+  <div class="mte-container mte-marquee-inner">
+    <span class="mte-marquee-badge">NEW</span>
+    <div class="mte-marquee-window">
+      <div class="mte-marquee-track" id="mteMarqueeTrack">
+        <div class="mte-marquee-group">
+          <span class="mte-marquee-item">নতুন ক্লাস নোট প্রকাশিত হয়েছে</span>
+          <span class="mte-marquee-item">অনলাইন কুরআন শিক্ষা কোর্সে ভর্তি চলছে</span>
+          <span class="mte-marquee-item">শিক্ষার্থীদের জন্য নতুন PDF রিসোর্স যুক্ত হয়েছে</span>
+          <span class="mte-marquee-item">পরবর্তী পরীক্ষার রুটিন শীঘ্রই প্রকাশিত হবে</span>
+        </div>
+        <div class="mte-marquee-group" aria-hidden="true">
+          <span class="mte-marquee-item">নতুন ক্লাস নোট প্রকাশিত হয়েছে</span>
+          <span class="mte-marquee-item">অনলাইন কুরআন শিক্ষা কোর্সে ভর্তি চলছে</span>
+          <span class="mte-marquee-item">শিক্ষার্থীদের জন্য নতুন PDF রিসোর্স যুক্ত হয়েছে</span>
+          <span class="mte-marquee-item">পরবর্তী পরীক্ষার রুটিন শীঘ্রই প্রকাশিত হবে</span>
+        </div>
+      </div>
+    </div>
+    <a class="mte-marquee-all" href="#notices" data-mte-route>সব নোটিশ →</a>
+  </div>
+</div>
+
+<!-- MAIN CONTENT: JavaScript এখানে Home ও অন্যান্য পেজ দেখায় -->
+<main id="mteMain"></main>
+
+<!-- FOOTER: Quick Links, যোগাযোগ ও Copyright -->
+
+<div id="mteHomeOnlySections">
+  <!-- =========================================================
+     আল কুরআনুল কারীম — HOME SECTION
+     ========================================================= -->
+
+<section id="al-quran">
+
+    <div class="quran-home-card">    
+
+        <!-- Islamic Border -->    
+
+        <div class="quran-home-card-border"></div>    
+
+        <!-- Top Decoration -->    
+
+        <div class="quran-top-decoration">    
+
+            ✦ ❖ ✦ ❖ ✦    
+
+        </div>    
+
+        <!-- =================================================    
+             QURAN IMAGE    
+        ================================================== -->    
+
+        <div class="quran-image-box">    
+
+            <img    
+                src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=700&q=90"    
+                alt="পবিত্র কুরআন শরীফ">    
+
+            <!-- Image Decoration -->    
+
+            <div class="quran-image-decoration top">    
+
+                <i class="fa-solid fa-star-and-crescent"></i>    
+
+            </div>    
+
+            <div class="quran-image-decoration bottom">    
+
+                <i class="fa-solid fa-book-quran"></i>    
+
+            </div>    
+
+        </div>    
+
+        <!-- =================================================    
+             CONTENT    
+        ================================================== -->    
+
+        <div class="quran-home-content">    
+
+            <span class="quran-small-label">    
+
+                ✦ কুরআন মাজীদ ✦    
+
+            </span>    
+
+            <div class="quran-arabic">    
+
+                الْقُرْآنُ الْكَرِيمُ    
+
+            </div>    
+
+            <h2>    
+
+                পবিত্র কুরআন শরীফ    
+
+            </h2>    
+
+            <p>    
+
+                পবিত্র কুরআন মাজীদ অনলাইনে পড়ুন।    
+                সহজেই আপনার পছন্দের পারা নির্বাচন করুন    
+                অথবা নির্দিষ্ট পৃষ্ঠায় সরাসরি চলে যান।    
+
+            </p>    
+
+            <!-- =================================================    
+                 READ BUTTON    
+            ================================================== -->    
+
+            <a    
+                href="#alquran"
+                data-mte-route    
+                class="quran-read-btn"    
+            >    
+
+                <i class="fa-solid fa-book-open"></i>    
+
+                কুরআন পড়ুন    
+
+                <i class="fa-solid fa-arrow-right"></i>    
+
+            </a>    
+
+        </div>    
+
+        <!-- =================================================    
+             BACKGROUND ARABIC    
+        ================================================== -->    
+
+        <div class="quran-decoration-text">    
+
+            الْقُرْآنُ الْكَرِيمُ    
+
+        </div>    
+
+    </div>    
+
+</section>
+
+<!-- বই স্লাইডার সেকশন শুরু -->
+<section class="book-slider-wrapper">
+  
+  <!-- স্লাইডারের উপরের শিরোনাম -->
+  <div class="slider-header">
+    <h2 class="slider-title">আমাদের বিশেষ বইসমূহ</h2>
+    <div class="title-divider"></div>
+  </div>
+
+  <div class="book-slider-container">
+    <div class="book-slider">
+
+      <!-- স্লাইড ১ -->
+      <div class="book-slide active">
+        <div class="slide-card">
+          <div class="book-cover-box">
+            <img src="https://ishbkgxmkywxmesxeqfk.supabase.co/storage/v1/object/public/Amar-boi.pdf/Fainal-%20font%20side.jpg" alt="তাজবীদ ও সিফাত" class="book-img">
+          </div>
+          <div class="book-details">
+            <span class="badge">নতুন প্রকাশনা</span>
+            <h3 class="book-title">প্রশ্নোত্তরে সহজ পদ্ধতিতে তাজবীদ ও সিফাত শিখি</h3>
+            <p class="book-author"><strong>লেখক:</strong>  শায়খ আবু ত্বহা মোহাম্মদ সাইফুল ইসলাম বিন মোশারফ</p>
+            <p class="book-info">মুদাররিস: মাদরাসাতুল হাদীস, নাজির বাজার, ঢাকা</p>
+            <a href="#" class="order-btn">বইটি সংগ্রহ করুন</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- স্লাইড ২ -->
+      <div class="book-slide">
+        <div class="slide-card">
+          <div class="book-cover-box">
+            <img src="https://ishbkgxmkywxmesxeqfk.supabase.co/storage/v1/object/public/Amar-boi.pdf/WhatsApp%20Image%202026-09-17%20at%204.48.08%20PM%20(2).jpeg" alt="অন্য বই" class="book-img">
+          </div>
+          <div class="book-details">
+            <span class="badge">জনপ্রিয়</span>
+            <h3 class="book-title">হৃদয়ের ঠিকানা জান্নাত</h3>
+            <p class="book-author"><strong>লেখক:</strong> শায়খ আবু ত্বহা মোহাম্মদ সাইফুল ইসলাম বিন মোশারফ</p>
+            <p class="book-info">একটি জীবনঘনিষ্ঠ দ্বীনি দিকনির্দেশনামূলক বই।</p>
+            <a href="#" class="order-btn">বইটি সংগ্রহ করুন</a>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- স্লাইড ৩ -->
+      <div class="book-slide">
+        <div class="slide-card">
+          <div class="book-cover-box">
+            <img src="https://ishbkgxmkywxmesxeqfk.supabase.co/storage/v1/object/public/Amar-boi.pdf/KAYDA%20NEW%20COVER%20PAGE%20(2).jpg" alt="অন্য বই" class="book-img">
+          </div>
+          <div class="book-details">
+            <span class="badge">জনপ্রিয়</span>
+            <h3 class="book-title">শিশুদের সহজ নূরাণী কায়দা</h3>
+            <p class="book-author"><strong>লেখক:</strong>  শায়খ আবু ত্বহা মোহাম্মদ সাইফুল ইসলাম বিন মোশারফ</p>
+            <p class="book-info">একটি জীবনঘনিষ্ঠ দ্বীনি দিকনির্দেশনামূলক বই।</p>
+            <a href="#" class="order-btn">বইটি সংগ্রহ করুন</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- নেভিগেশন বাটন -->
+<button class="prev-btn" type="button">&#10094;</button>
+<button class="next-btn" type="button">&#10095;</button>
+
+    <!-- অটোমেটিক ডায়নামিক ডট -->
+    <div class="dots-container" id="bookDotsContainer"></div>
+  </div>
+
+
+  
+</section> <!-- 👈 এইখানে বই স্লাইডার সেকশনটি বন্ধ করুন -->
+
+
+  
+  
+  <!-- ================= ONLINE COURSES ================= -->
+<section class="online-course-section" id="online-courses">
+
+    <div class="course-section-header">
+        <span class="course-small-title">অনলাইন শিক্ষা</span>
+        <h2>অনলাইন কোর্স</h2>
+        <p>ঘরে বসেই শিখুন কুরআন, তাজবীদ ও প্রয়োজনীয় ইসলামিক শিক্ষা।</p>
+    </div>
+
+    <div class="course-grid">
+
+        <!-- Course 01 -->
+        <article class="course-card">
+
+            <div class="course-image">
+                <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80"
+                     alt="তাজবীদ কোর্স">
+
+                <span class="course-badge">জনপ্রিয়</span>
+            </div>
+
+            <div class="course-content">
+
+                <div class="course-category">
+                    কুরআন ও তাজবীদ
+                </div>
+
+                <h3>সহজ পদ্ধতিতে তাজবীদ ও সিফাত</h3>
+
+                <p class="course-description">
+                    কুরআন মাজীদ শুদ্ধভাবে পড়ার জন্য প্রয়োজনীয়
+                    তাজবীদ ও সিফাত সহজ পদ্ধতিতে শেখানো হবে।
+                </p>
+
+                <div class="course-meta">
+                    <span>📚 ২০টি মডিউল</span>
+                    <span>🎥 ভিডিও ক্লাস</span>
+                </div>
+
+                <div class="course-price">
+                    <span>৳ ৫০০</span>
+                    <del>৳ ৮০০</del>
+                </div>
+
+                <button class="course-details-btn"
+                        onclick="openCourseDetails('tajweed')">
+                    কোর্সের বিস্তারিত
+                </button>
+
+            </div>
+        </article>
+
+
+        <!-- Course 02 -->
+        <article class="course-card">
+
+            <div class="course-image">
+                <img src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=900&q=80"
+                     alt="নূরাণী কায়দা">
+
+                <span class="course-badge">নতুন</span>
+            </div>
+
+            <div class="course-content">
+
+                <div class="course-category">
+                    শিশুদের ইসলামিক শিক্ষা
+                </div>
+
+                <h3>সহজ পদ্ধতিতে নূরাণী কায়দা</h3>
+
+                <p class="course-description">
+                    শিশুদের জন্য কুরআন পড়ার প্রাথমিক শিক্ষা,
+                    মাখরাজ ও প্রয়োজনীয় নিয়ম সহজভাবে শেখানো হবে।
+                </p>
+
+                <div class="course-meta">
+                    <span>📚 ১৫টি মডিউল</span>
+                    <span>🎥 ভিডিও ক্লাস</span>
+                </div>
+
+                <div class="course-price">
+                    <span>৳ ৩০০</span>
+                    <del>৳ ৫০০</del>
+                </div>
+
+                <button class="course-details-btn"
+                        onclick="openCourseDetails('qaida')">
+                    কোর্সের বিস্তারিত
+                </button>
+
+            </div>
+        </article>
+
+
+        <!-- Course 03 -->
+        <article class="course-card">
+
+            <div class="course-image">
+                <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=900&q=80"
+                     alt="দোয়া ও মাসআলা">
+
+                <span class="course-badge">বিশেষ</span>
+            </div>
+
+            <div class="course-content">
+
+                <div class="course-category">
+                    দৈনন্দিন ইসলামিক শিক্ষা
+                </div>
+
+                <h3>প্রয়োজনীয় দোয়া ও মাসআলা</h3>
+
+                <p class="course-description">
+                    দৈনন্দিন জীবনের প্রয়োজনীয় দোয়া, মাসআলা
+                    ও ইসলামী আদব-কায়দা সম্পর্কে সহজ পাঠ।
+                </p>
+
+                <div class="course-meta">
+                    <span>📚 ১২টি মডিউল</span>
+                    <span>🎥 ভিডিও ক্লাস</span>
+                </div>
+
+                <div class="course-price">
+                    <span>৳ ২৫০</span>
+                    <del>৳ ৪০০</del>
+                </div>
+
+                <button class="course-details-btn"
+                        onclick="openCourseDetails('dua')">
+                    কোর্সের বিস্তারিত
+                </button>
+
+            </div>
+        </article>
+
+    </div>
+</section>
+
+
+<!-- ================= COURSE DETAILS MODAL ================= -->
+
+<div class="course-modal" id="courseModal">
+
+    <div class="course-modal-box">
+
+        <button class="course-modal-close"
+                onclick="closeCourseDetails()">×</button>
+
+        <span class="course-modal-badge">অনলাইন কোর্স</span>
+
+        <h2 id="modalCourseTitle">
+            কোর্সের নাম
+        </h2>
+
+        <p id="modalCourseDescription">
+            কোর্সের বিস্তারিত এখানে দেখানো হবে।
+        </p>
+
+        <div class="course-module-title">
+            📚 কোর্সের মডিউল
+        </div>
+
+        <div id="courseModules"></div>
+
+        <div class="payment-box">
+
+            <h3>💳 ভর্তি ও পেমেন্ট</h3>
+
+            <p>
+                কোর্সে ভর্তি হতে নিচের বিকাশ নম্বরে
+                পেমেন্ট করুন।
+            </p>
+
+            <div class="bkash-number">
+                01XXXXXXXXX
+            </div>
+
+            <p class="payment-note">
+                পেমেন্ট করার পর আপনার নাম, মোবাইল নম্বর
+                এবং Transaction ID প্রদান করুন।
+            </p>
+
+            <button class="payment-button"
+                    onclick="showPaymentMessage()">
+                পেমেন্ট তথ্য দিন
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+ 
+<!-- বই স্লাইডার সেকশন শেষ -->
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="why-choose-section">
+  <div class="mte-container">
+    <div class="course-section-header">
+      <span class="course-small-title">আমাদের বৈশিষ্ট্য</span>
+      <h2>কেন আমাদের কাছে শিখবেন?</h2>
+      <p>সহজ, নিখুঁত ও বিশুদ্ধ দ্বীনি শিক্ষা নিশ্চিত করতে আমাদের বিশেষ সেবাসমূহ</p>
+    </div>
+
+    <div class="why-choose-grid">
+      <div class="why-card">
+        <div class="why-icon">📖</div>
+        <h3>সহজ ও নিখুঁত পদ্ধতি</h3>
+        <p>জটিল নিয়ম এড়িয়ে একদম নতুনদের জন্য সহজবোধ্য পদ্ধতিতে তাজবীদ ও কায়দা শেখানো হয়।</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">👨‍🏫</div>
+        <h3>অভিজ্ঞ ও অভিজ্ঞ শিক্ষক</h3>
+        <p>মাদ্রাসা শিক্ষক ও ইসলামিক চিন্তাবিদের সরাসরি তত্ত্বাবধানে মানসম্মত শিক্ষা প্রদান।</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">💻</div>
+        <h3>অনলাইন ও ফ্ল্যাক্সিবল সময়</h3>
+        <p>নিজের সুবিধাজনক সময়ে ঘরে বসেই কোর্স ও ক্লাসে যুক্ত হওয়ার সুযোগ।</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">📚</div>
+        <h3>বিনামূল্যে রিসোর্স ও PDF</h3>
+        <p>প্রতিটি কোর্সের সাথে প্রয়োজনীয় ক্লাস নোট, পিডিএফ বই ও অনুশীলন শিট প্রদান।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= FAQ SECTION ================= -->
+<section class="faq-section">
+  <div class="mte-container">
+    <div class="course-section-header">
+      <span class="course-small-title">জিজ্ঞাসা</span>
+      <h2>সাধারণ প্রশ্ন ও উত্তর (FAQ)</h2>
+      <p>কোর্স ও বই সংক্রান্ত আপনার মনে আসা কিছু প্রশ্নের উত্তর</p>
+    </div>
+
+    <div class="faq-container">
+      <details class="faq-item">
+        <summary class="faq-question">১. অনলাইন কোর্সে কীভাবে ভর্তি হবো?</summary>
+        <div class="faq-answer">
+          <p>অনলাইন কোর্স সেকশন থেকে যেকোনো কোর্সের 'কোর্সের বিস্তারিত' বাটনে ক্লিক করুন। সেখানে প্রদত্ত বিকাশ/নম্বরে পেমেন্ট করে আপনার নাম ও ট্রানজেকশন আইডি প্রদান করলেই ভর্তি নিশ্চিত হবে।</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">২. বইগুলো কীভাবে সংগ্রহ করতে পারবো?</summary>
+        <div class="faq-answer">
+          <p>আপনি ওয়েবসাইটেই পিডিএফ (PDF) ভার্সন পড়তে পারবেন। এছাড়া হার্ডকপি বই সংগ্রহ করতে সরাসরি যোগাযোগ বা অর্ডার বাটনে ক্লিক করতে পারেন।</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">৩. সম্পূর্ণ নতুনরা কি এই কোর্সে যুক্ত হতে পারবে?</summary>
+        <div class="faq-answer">
+          <p>হ্যাঁ, আমাদের নূরাণী কায়দা ও তাজবীদ কোর্সসমূহ একদম প্রাথমিক পর্যায় থেকে শুরু করার উপযোগী করে সাজানো হয়েছে।</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">৪. ক্লাসের সময়সূচি কীভাবে জানা যাবে?</summary>
+        <div class="faq-answer">
+          <p>ভর্তির পর আপনাকে নির্দিষ্ট হোয়াটসঅ্যাপ বা মেসেঞ্জার গ্রুপে যুক্ত করা হবে এবং ওয়েবসাইটের 'রুটিন' সেকশনেও আপডেট দেওয়া হবে।</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+<!-- ================= COUNTER SECTION ================= -->
+<section class="counter-section">
+
+  <div class="mte-container">
+
+    <div class="counter-grid">
+
+      <!-- Counter 01 -->
+      <div class="counter-card">
+
+        <div class="counter-icon">
+          👥
+        </div>
+
+        <h3 class="counter-number">
+          ৫০০+
+        </h3>
+
+        <p>
+          সফল শিক্ষার্থী
+        </p>
+
+      </div>
+
+
+      <!-- Counter 02 -->
+      <div class="counter-card">
+
+        <div class="counter-icon">
+          📚
+        </div>
+
+        <h3 class="counter-number">
+          ৩+
+        </h3>
+
+        <p>
+          প্রকাশিত বই
+        </p>
+
+      </div>
+
+
+      <!-- Counter 03 -->
+      <div class="counter-card">
+
+        <div class="counter-icon">
+          🎓
+        </div>
+
+        <h3 class="counter-number">
+          ১০+
+        </h3>
+
+        <p>
+          অনলাইন কোর্স
+        </p>
+
+      </div>
+
+
+      <!-- Counter 04 -->
+      <div class="counter-card">
+
+        <div class="counter-icon">
+          ⭐
+        </div>
+
+        <h3 class="counter-number">
+          ৫+
+        </h3>
+
+        <p>
+          বছরের অভিজ্ঞতা
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- ================= COUNTER SECTION END ================= -->
+
+<section class="taqwa-stats-section">
+
+    <div class="taqwa-stats-decoration taqwa-decoration-one">۞</div>
+    <div class="taqwa-stats-decoration taqwa-decoration-two">✦</div>
+
+    <div class="taqwa-stats-container">
+
+        <div class="taqwa-stats-heading">
+
+            <small>✦ আমাদের অর্জন ✦</small>
+
+            <h2>তাকওয়া একাডেমীর সাফল্য</h2>
+
+            <p>
+                শিক্ষার্থীদের জন্য আমাদের বিভিন্ন অর্জন ও কার্যক্রম
+            </p>
+
+        </div>
+
+        <div class="taqwa-stats-cards">
+
+            <!-- Card 01 -->
+            <div class="taqwa-stats-card">
+
+                <div class="taqwa-stats-shine"></div>
+
+                <div class="taqwa-stats-symbol">۞</div>
+
+                <div class="taqwa-stats-badge">
+                    সাফল্য
+                </div>
+
+                <div class="taqwa-stats-icon">
+                    🎓
+                </div>
+
+                <div class="taqwa-stats-number">
+                    850+
+                </div>
+
+                <div class="taqwa-stats-label">
+                    মোট শিক্ষার্থী
+                </div>
+
+                <div class="taqwa-stats-progress">
+                    <span></span>
+                </div>
+
+                <div class="taqwa-stats-dot"></div>
+
+            </div>
+
+
+            <!-- Card 02 -->
+            <div class="taqwa-stats-card">
+
+                <div class="taqwa-stats-shine"></div>
+
+                <div class="taqwa-stats-symbol">✦</div>
+
+                <div class="taqwa-stats-badge">
+                    অভিজ্ঞ
+                </div>
+
+                <div class="taqwa-stats-icon">
+                    👨‍🏫
+                </div>
+
+                <div class="taqwa-stats-number">
+                    45+
+                </div>
+
+                <div class="taqwa-stats-label">
+                    অভিজ্ঞ শিক্ষক
+                </div>
+
+                <div class="taqwa-stats-progress">
+                    <span></span>
+                </div>
+
+                <div class="taqwa-stats-dot"></div>
+
+            </div>
+
+
+            <!-- Card 03 -->
+            <div class="taqwa-stats-card">
+
+                <div class="taqwa-stats-shine"></div>
+
+                <div class="taqwa-stats-symbol">۞</div>
+
+                <div class="taqwa-stats-badge">
+                    শিক্ষা
+                </div>
+
+                <div class="taqwa-stats-icon">
+                    📚
+                </div>
+
+                <div class="taqwa-stats-number">
+                    18+
+                </div>
+
+                <div class="taqwa-stats-label">
+                    কোর্স ও বিষয়
+                </div>
+
+                <div class="taqwa-stats-progress">
+                    <span></span>
+                </div>
+
+                <div class="taqwa-stats-dot"></div>
+
+            </div>
+
+
+            <!-- Card 04 -->
+            <div class="taqwa-stats-card">
+
+                <div class="taqwa-stats-shine"></div>
+
+                <div class="taqwa-stats-symbol">✦</div>
+
+                <div class="taqwa-stats-badge">
+                    অর্জন
+                </div>
+
+                <div class="taqwa-stats-icon">
+                    🏆
+                </div>
+
+                <div class="taqwa-stats-number">
+                    32+
+                </div>
+
+                <div class="taqwa-stats-label">
+                    পুরস্কার ও অর্জন
+                </div>
+
+                <div class="taqwa-stats-progress">
+                    <span></span>
+                </div>
+
+                <div class="taqwa-stats-dot"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= TESTIMONIAL SLIDER SECTION ================= -->
+<section class="testimonial-section">
+  <div class="mte-container">
+    <div class="course-section-header">
+      <span class="course-small-title">মতামত ও অনুভূতি</span>
+      <h2>অভিভাবক ও শিক্ষার্থীদের অভিজ্ঞতা</h2>
+      <p>আমাদের কোর্স এবং প্রকাশিত বই নিয়ে প্রিয় শিক্ষার্থী ও অভিভাবকদের মূল্যবান প্রতিক্রিয়া</p>
+    </div>
+
+    <div class="testimonial-slider-wrapper">
+      <button class="testi-btn testi-prev" id="testiPrevBtn" type="button">&#10094;</button>
+
+      <div class="testimonial-slider-container" id="testiSliderContainer">
+        <!-- কার্ড ১ -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "মাশআল্লাহ! হুজুরের সহজ তাজবীদ কোর্সে যুক্ত হয়ে আমার মাখরাজ ও তাজবীদের ভুলগুলো খুব দ্রুত শুধরে গেছে। প্রতিটি ক্লাসে ওনার বোঝানোর ধরন চমৎকার।"
+          </p>
+          <div class="testimonial-user">
+            <div class="user-avatar">
+              <img src="https://ui-avatars.com/api/?name=আব্দুল্লাহ+আলিম&background=052e16&color=fff" alt="শিক্ষার্থী">
+            </div>
+            <div class="user-info">
+              <h4>আব্দুল্লাহ আল-মামুন</h4>
+              <span>কুরআন শিক্ষা কোর্সের শিক্ষার্থী</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- কার্ড ২ -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "আমার ছোট ছেলেকে অনলাইনে তাজবীদ শেখানোর জন্য ভর্তি করেছিলাম। এত নিখুঁত মনোযোগ দিয়ে ছোটদের কুরআন শেখানো দেখে আমি সত্যিই অভিভূত।"
+          </p>
+          <div class="testimonial-user">
+            <div class="user-avatar">
+              <img src="https://ui-avatars.com/api/?name=মহসিন+হাসান&background=0a4d27&color=fff" alt="অভিভাবক">
+            </div>
+            <div class="user-info">
+              <h4>মুহাম্মাদ মহসিন</h4>
+              <span>অভিভাবক</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- কার্ড ৩ -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "প্রশ্নোত্তরে তাজবীদ ও সিফাত বইটি সংগ্রহ করেছিলাম। বইটির ভাষা এত সহজ যে ঘরে বসেই নিজে নিজে তাজবীদের নিয়মগুলো বুঝে পড়া সম্ভব হচ্ছে।"
+          </p>
+          <div class="testimonial-user">
+            <div class="user-avatar">
+              <img src="https://ui-avatars.com/api/?name=মাহমুদ+রহমান&background=c09420&color=fff" alt="পাঠক">
+            </div>
+            <div class="user-info">
+              <h4>মাহমুদুর রহমান</h4>
+              <span>বইয়ের পাঠক</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- কার্ড ৪ -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "অনলাইন ক্বারী সাব কোর্সের ভিডিও লেকচারগুলো খুবই সাজানো গোছানো। বিশেষ করে অনুশীলনের সময়গুলো অনেক হেল্পফুল ছিল।"
+          </p>
+          <div class="testimonial-user">
+            <div class="user-avatar">
+              <img src="https://ui-avatars.com/api/?name=হাসান+আলী&background=16a34a&color=fff" alt="শিক্ষার্থী">
+            </div>
+            <div class="user-info">
+              <h4>হাসান আলী</h4>
+              <span>অনলাইন কোর্স শিক্ষার্থী</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="testi-btn testi-next" id="testiNextBtn" type="button">&#10095;</button>
+    </div>
+
+    <!-- ইন্ডিকেটর ডটস -->
+    <div class="testi-dots-container" id="testiDotsContainer"></div>
+  </div>
+</section>
+
+<!-- ================= HADITH & NASIHA SECTION ================= -->
+<section class="hadith-section">
+  <div class="mte-container">
+    <div class="hadith-box">
+      <span class="hadith-badge">আজকের হাদিস ও নসিহত</span>
+      <blockquote class="hadith-text">
+        "তোমাদের মধ্যে সর্বোত্তম সেই ব্যক্তি, যে নিজে কুরআন শেখে এবং অন্যকে শিক্ষা দেয়।"
+      </blockquote>
+      <p class="hadith-source">— সহীহ বুখারী: ৫০২৭</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= AUDIO RECITATION SECTION ================= -->
+<section class="audio-section">
+  <div class="mte-container">
+    <div class="course-section-header">
+      <span class="course-small-title">তিলাওয়াত ও বয়ান</span>
+      <h2>অডিও তিলাওয়াত ও নসিহত</h2>
+      <p>কুরআন তিলাওয়াত এবং সংক্ষিপ্ত ইসলামিক আলোচনা সরাসরি শুনুন</p>
+    </div>
+
+    <div class="audio-grid">
+      <!-- অডিও কার্ড ১ -->
+      <div class="audio-card">
+        <div class="audio-info">
+          <h3>সূরা আল-ফাতিহা (তাজবীদসহ তিলাওয়াত)</h3>
+          <p>ক্বারী আবু ত্বহা মোহাম্মাদ সাইফুল ইসলাম</p>
+        </div>
+        <audio controls class="audio-player">
+          <source src="audio/surah-fatiha.mp3" type="audio/mpeg">
+          আপনার ব্রাউজার অডিও প্লেয়ার সাপোর্ট করে না।
+        </audio>
+      </div>
+
+      <!-- অডিও কার্ড ২ -->
+      <div class="audio-card">
+        <div class="audio-info">
+          <h3>সহজ পদ্ধতিতে তাজবীদ শিক্ষার গুরুত্ব</h3>
+          <p>সংক্ষিপ্ত বয়ান ও নসিহত</p>
+        </div>
+        <audio controls class="audio-player">
+          <source src="audio/tajweed-importance.mp3" type="audio/mpeg">
+          আপনার ব্রাউজার অডিও প্লেয়ার সাপোর্ট করে না।
+        </audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ইমেজ স্লাইডার সেকশন শুরু -->
+<section class="slider-wrapper">
+  <div class="slider-container">
+    <div class="slider">
+      <!-- ইমেজ ১ -->
+      <div class="slide active">
+        <img src="https://ishbkgxmkywxmesxeqfk.supabase.co/storage/v1/object/public/Amar-boi.pdf/bloom-blossom-flora-40797.jpg" alt="Slide 1">
+        <div class="caption">প্রথম স্লাইডের শিরোনাম</div>
+      </div>
+      <!-- ইমেজ ২ -->
+      <div class="slide">
+        <img src="https://ishbkgxmkywxmesxeqfk.supabase.co/storage/v1/object/public/Amar-boi.pdf/clouds-dawn-dramatic-1118873.jpg" alt="Slide 2">
+        <div class="caption">দ্বিতীয় স্লাইডের শিরোনাম</div>
+      </div>
+      <!-- ইমেজ ৩ -->
+      <div class="slide">
+        <img src="https://ishbkgxmkywxmesxeqfk.supabase.co/storage/v1/object/public/Amar-boi.pdf/depositphotos_758888982-stock-photo-beautifully-designed-religious-book-rests.jpg" alt="Slide 3">
+        <div class="caption">তৃতীয় স্লাইডের শিরোনাম</div>
+      </div>
+      <!-- ইমেজ ৪ -->
+      <div class="slide active">
+  <img src="https://ishbkgxmkywxmesxeqfk.supabase.co/storage/v1/object/public/Amar-boi.pdf/images%20(2).jpg" alt="Slide Image">
+  <div class="caption">চতুর্থ স্লাইডের শিরোনাম</div>
+</div>
+      <!-- ইমেজ ৫ -->
+      <div class="slide">
+        <img src="https://ishbkgxmkywxmesxeqfk.supabase.co/storage/v1/object/public/Amar-boi.pdf/images%20(3).jpg" alt="Slide 4">
+        <div class="caption">পঞ্চম স্লাইডের শিরোনাম</div>
+      </div>
+      <!-- ইমেজ ৬ -->
+      <div class="slide">
+        <img src="https://ishbkgxmkywxmesxeqfk.supabase.co/storage/v1/object/public/Amar-boi.pdf/bahir%20kamta_%2010%20x%20_%204_%2001%20pcs.jpg" alt="Slide 4">
+        <div class="caption">বাহির কামতা জামে মাসজিদ ওয়াজ</div>
+      </div>
+      <!-- ইমেজ ৭ -->
+      <div class="slide">
+        <img src="https://ishbkgxmkywxmesxeqfk.supabase.co/storage/v1/object/public/Amar-boi.pdf/adventure-air-aircraft-36487.jpg" alt="Slide 4">
+        <div class="caption">বাহির কামতা জামে মাসজিদ ওয়াজ</div>
+      </div>
+    </div>
+    <!-- নেভিগেশন বাটন (Prev & Next) -->
+    <button class="prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next-btn" onclick="moveSlide(1)">&#10095;</button>
+
+    <!-- নিচের ডট (Dots) -->
+<!-- নিচের ডট (অটো জেনারেট হবে) -->
+<div class="dots-container" id="imageDotsContainer"></div>
+    </div>
+  </div>
+</section>
+<!-- ইমেজ স্লাইডার সেকশন শেষ -->
+
+
+
+
+
+<!-- =========================================================
+     PRAYER TIMES — STATIC HTML
+     HTML structure এখানে স্থায়ী থাকবে।
+     JavaScript শুধু সময়/তারিখ/data আপডেট করবে।
+     ========================================================= -->
+<section id="mtePrayerSection" hidden>
+
+      <div class="mte-prayer-container">
+
+
+        <div class="mte-prayer-header">
+
+          <h2 class="mte-prayer-title">
+            🕌 নামাজের সময়সূচি
+          </h2>
+
+
+          <p
+            id="mtePrayerLocationText"
+            class="mte-prayer-location">
+            ঢাকা, বাংলাদেশ
+          </p>
+
+
+          <div class="mte-school-toggle-wrapper">
+
+            <div class="mte-school-toggle-container">
+
+
+              <button
+                id="mteBtnHanafi"
+                class="mte-school-btn active">
+
+                <span class="mte-radio-circle"></span>
+
+                হানাফী
+
+              </button>
+
+
+              <button
+                id="mteBtnShafii"
+                class="mte-school-btn">
+
+                <span class="mte-radio-circle"></span>
+
+                আহলে হাদীস / শাফেঈ / হাম্বলী / মালিকী
+
+              </button>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="mte-prayer-dates">
+
+
+          <div class="mte-prayer-date-card">
+
+            <span class="mte-prayer-date-label">
+              বাংলা তারিখ
+            </span>
+
+            <span id="mtePrayerBanglaDate">
+              —
+            </span>
+
+            <span
+              id="mtePrayerBanglaSeason"
+              class="mte-prayer-season">
+              —
+            </span>
+
+          </div>
+
+
+          <div class="mte-prayer-date-card">
+
+            <span class="mte-prayer-date-label">
+              ইংরেজি তারিখ
+            </span>
+
+            <span id="mtePrayerEnglishDate">
+              —
+            </span>
+
+          </div>
+
+
+          <div class="mte-prayer-date-card">
+
+            <span class="mte-prayer-date-label">
+              হিজরি তারিখ
+            </span>
+
+            <span id="mtePrayerHijriDate">
+              —
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+        <div
+          id="mtePrayerCards"
+          class="mte-prayer-cards">
+
+          <div class="mte-prayer-loading">
+            নামাজের সময় লোড হচ্ছে...
+          </div>
+
+        </div>
+
+
+        <div
+          id="mtePrayerCurrent"
+          class="mte-prayer-countdown">
+
+
+          <div class="mte-prayer-countdown-inner">
+
+
+            <div
+              id="mtePrayerCountdownMessage"
+              class="mte-prayer-count-message">
+
+              🕌 বর্তমানে নামাজের ওয়াক্ত চলছে
+
+            </div>
+
+
+            <!-- GOLDEN ANALOG CLOCK -->
+
+            <div class="mte-prayer-live-time">
+
+              <div class="mte-prayer-live-time-label">
+                🕐 বর্তমান সময়
+              </div>
+
+
+              <div
+                id="mtePrayerWallClock"
+                class="mte-prayer-wall-clock"
+                aria-label="বর্তমান সময়ের দেয়াল ঘড়ি">
+
+
+                <div class="mte-prayer-clock-face">
+
+
+                  <div
+                    class="mte-prayer-clock-number mte-clock-12">
+                    ১২
+                  </div>
+
+
+                  <div
+                    class="mte-prayer-clock-number mte-clock-3">
+                    ৩
+                  </div>
+
+
+                  <div
+                    class="mte-prayer-clock-number mte-clock-6">
+                    ৬
+                  </div>
+
+
+                  <div
+                    class="mte-prayer-clock-number mte-clock-9">
+                    ৯
+                  </div>
+
+
+                  <div
+                    id="mtePrayerClockHour"
+                    class="mte-prayer-clock-hand mte-prayer-clock-hour">
+                  </div>
+
+
+                  <div
+                    id="mtePrayerClockMinute"
+                    class="mte-prayer-clock-hand mte-prayer-clock-minute">
+                  </div>
+
+
+                  <div
+                    id="mtePrayerClockSecond"
+                    class="mte-prayer-clock-hand mte-prayer-clock-second">
+                  </div>
+
+
+                  <div class="mte-prayer-clock-center">
+                  </div>
+
+
+                </div>
+
+              </div>
+
+
+              <div
+                id="mtePrayerLiveTime"
+                class="mte-prayer-live-time-value">
+                —
+              </div>
+
+
+            </div>
+
+
+            <!-- NEXT PRAYER -->
+
+            <div class="mte-prayer-next-wrapper">
+
+
+              <div class="mte-prayer-next-label">
+                পরবর্তী নামাজ
+              </div>
+
+
+              <div
+                id="mtePrayerNextName"
+                class="mte-prayer-next-name">
+                —
+              </div>
+
+
+              <div
+                id="mtePrayerCountdownText"
+                class="mte-prayer-countdown-text">
+                ওয়াক্ত শুরু হতে বাকি
+              </div>
+
+
+              <div class="mte-prayer-count-box">
+
+
+                <div class="mte-prayer-count-number">
+
+                  <span id="mtePrayerHours">
+                    ০০
+                  </span>
+
+                  <span class="mte-prayer-count-unit">
+                    ঘণ্টা
+                  </span>
+
+                </div>
+
+
+                <div class="mte-prayer-count-colon">
+                  :
+                </div>
+
+
+                <div class="mte-prayer-count-number">
+
+                  <span id="mtePrayerMinutes">
+                    ০০
+                  </span>
+
+                  <span class="mte-prayer-count-unit">
+                    মিনিট
+                  </span>
+
+                </div>
+
+
+                <div class="mte-prayer-count-colon">
+                  :
+                </div>
+
+
+                <div class="mte-prayer-count-number">
+
+                  <span id="mtePrayerSeconds">
+                    ০০
+                  </span>
+
+                  <span class="mte-prayer-count-unit">
+                    সেকেন্ড
+                  </span>
+
+                </div>
+
+
+              </div>
+
+
+              <div
+                id="mtePrayerNextStartTime"
+                class="mte-prayer-next-start-time">
+                —
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+</div>
+
+</section>
+
+<footer class="mte-footer">
+  <div class="mte-container">
+    <div class="mte-footer-grid">
+      <div>
+        <h3 id="mteFooterName"></h3>
+        <p>মাদ্রাসা শিক্ষক ও ইসলামিক শিক্ষা প্ল্যাটফর্ম। কুরআন, তাজবীদ, হিফজ ও শিক্ষার্থীদের প্রয়োজনীয় রিসোর্স সহজভাবে পৌঁছে দেওয়াই এই ওয়েবসাইটের উদ্দেশ্য।</p>
+      </div>
+      <div>
+        <h3>দ্রুত লিংক</h3>
+        <ul class="mte-footer-links">
+          <li><a href="#home" data-mte-route>হোম</a></li>
+          <li><a href="#about" data-mte-route>আমার সম্পর্কে</a></li>
+          <li><a href="#notes" data-mte-route>ক্লাস নোট</a></li>
+          <li><a href="#courses" data-mte-route>অনলাইন কোর্স</a></li>
+          <li><a href="#contact" data-mte-route>যোগাযোগ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>রিসোর্স</h3>
+        <ul class="mte-footer-links">
+          <li><a href="#books" data-mte-route>ইসলামিক বই</a></li>
+          <li><a href="#library" data-mte-route>PDF লাইব্রেরি</a></li>
+          <li><a href="#routine" data-mte-route>রুটিন</a></li>
+          <li><a href="#results" data-mte-route>ফলাফল</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mte-footer-bottom">© <span id="mteYear"></span> <span id="mteFooterName2"></span> — </div>
+  </div>
+</footer>
+
+<!-- PDF MODAL READER: PDF ওয়েবসাইটের ভিতরে দেখায়; Download/Print UI নেই -->
+<div class="mte-modal" id="mtePdfModal" aria-hidden="true">
+  <div class="mte-modal-box" role="dialog" aria-modal="true">
+    <div class="mte-modal-head">
+      <div class="mte-modal-title" id="mtePdfTitle">PDF Reader</div>
+      <button class="mte-modal-close" id="mtePdfClose" type="button" aria-label="বন্ধ করুন">×</button>
+    </div>
+    <div class="mte-pdf-toolbar">
+      <button id="mtePdfPrev" type="button">‹ আগের</button>
+      <span class="mte-pdf-page-info" id="mtePdfPage">পৃষ্ঠা —</span>
+      <button id="mtePdfNext" type="button">পরের ›</button>
+      <button id="mtePdfZoomOut" type="button">−</button>
+      <button id="mtePdfZoomIn" type="button">+</button>
+      <button id="mtePdfFit" type="button">Fit</button>
+    </div>
+    <div class="mte-pdf-view" id="mtePdfView">
+      <div class="mte-pdf-status" id="mtePdfStatus">PDF লোড হচ্ছে...</div>
+      <canvas class="mte-pdf-canvas" id="mtePdfCanvas" hidden></canvas>
+    </div>
+    <div class="mte-pdf-note">এই Reader-এ Download বা Print বাটন রাখা হয়নি। ওয়েব ব্রাউজারে ১০০% কপি/স্ক্রিনশট প্রতিরোধ করা সম্ভব নয়।</div>
+  </div>
+</div>
+  
+
+  
+  
+<!-- GALLERY LIGHTBOX: ছবিতে ক্লিক করলে বড় করে দেখায় -->
+<div class="mte-lightbox" id="mteLightbox">
+  <button id="mteLightboxClose" type="button">×</button>
+  <img id="mteLightboxImg" src="" alt="গ্যালারি ছবি">
+</div>
+
+</div>
+<!-- =====================================================
+     FONT AWESOME
+     ===================================================== -->
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+<!-- =====================================================
+     SCRIPT
+     ===================================================== -->
+
+<script src="script.js"></script>
+
+
+
+  <!-- =====================================================
+     NEW TYPING ANIMATION — START
+     ===================================================== -->
+
+<div class="mte-new-typing-card">
+
+  <div class="mte-new-typing-small">
+    🌿 জ্ঞান • নৈতিকতা • আদর্শ
+  </div>
+
+  <div class="mte-new-typing-arabic">
+    رَبِّ زِدْنِي عِلْمًا
+  </div>
+
+  <div class="mte-new-typing-box">
+
+    <span id="mteTypingNew"></span>
+
+    <span
+      class="mte-new-typing-cursor"
+      aria-hidden="true">|</span>
+
+  </div>
+
+  <div class="mte-new-typing-line"></div>
+
+</div>
+
+<!-- =====================================================
+     NEW TYPING ANIMATION — END
+     ===================================================== -->
+
+
+<!-- =====================================================
+     ISLAMIC FOOTER START
+     ===================================================== -->
+
+<footer class="site-footer">
+
+  <div class="footer-container">
+
+    <div class="footer-top-grid">
+
+      <!-- PROFILE -->
+      <div class="footer-col profile-col">
+
+        <p class="intro-tag">
+          বিশিষ্ট ইসলামিক চিন্তাবিদ ও ইসলামিক আলোচক
+        </p>
+
+        <h2 class="main-name">
+          হাফেজ ক্বারী আবু ত্বহা <br>
+          মোহাম্মদ সাইফুল ইসলাম
+        </h2>
+
+        <p class="role-list">
+          ওয়েব ডেভেলপার • ওয়েব ডিজাইনার •
+          এম এস ওয়ার্ড এক্সপার্ট •
+          <br> শিক্ষানুরাগী • শিক্ষক • লেখক • ইমাম
+        </p>
+
+      </div>
+
+
+      <!-- CONTACT -->
+      <div class="footer-col middle-col">
+
+        <div class="middle-sub-section">
+
+          <h3 class="col-title">
+
+            <i class="fa-solid fa-location-dot title-icon red-icon"></i>
+
+            ঠিকানা ও যোগাযোগ
+
+          </h3>
+
+          <div class="title-divider"></div>
+
+          <ul class="info-list">
+
+            <li>
+
+              <i class="fa-solid fa-envelope info-icon gold-icon"></i>
+
+              <a href="mailto:si1993.sm@gmail.com">
+                si1993.sm@gmail.com
+              </a>
+
+            </li>
+
+            <li>
+
+              <i class="fa-solid fa-phone info-icon green-icon"></i>
+
+              <strong>মোবাইল</strong>
+
+              <a href="tel:01638816760">
+                ০১৬৩৮৮১৬৭৬০
+              </a>
+
+            </li>
+
+            <li>
+
+              <i class="fa-solid fa-location-dot info-icon red-icon"></i>
+
+              <span>
+                কামতা, সাটুরিয়া, মানিকগঞ্জ — ১৮০০
+              </span>
+
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- DIRECT LINKS -->
+        <div class="middle-sub-section">
+
+          <h3 class="col-title">
+
+            <i class="fa-solid fa-link title-icon"></i>
+
+            সরাসরি লিংক
+
+          </h3>
+
+          <div class="title-divider"></div>
+
+          <ul class="link-list">
+
+            <li>
+              <a href="#">
+                শর্তাবলী
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                গোপনীয়তা নীতি
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <!-- SOCIAL -->
+      <div class="footer-col social-col">
+
+        <h3 class="col-title">
+
+          <i class="fa-solid fa-mobile-screen-button title-icon"></i>
+
+          সোশ্যাল মিডিয়া
+
+        </h3>
+
+        <div class="title-divider"></div>
+
+        <div class="social-icons">
+
+          <a
+            href="#"
+            aria-label="Facebook">
+
+            <i class="fa-brands fa-facebook footer-facebook"></i>
+
+          </a>
+
+
+          <a
+            href="#"
+            aria-label="Twitter">
+
+            <i class="fa-brands fa-twitter footer-twitter"></i>
+
+          </a>
+
+
+          <a
+            href="#"
+            aria-label="YouTube">
+
+            <i class="fa-brands fa-youtube footer-youtube"></i>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- MISSION -->
+    <div class="footer-quote-section">
+
+      <p>
+
+        ইসলামের সুমহান শিক্ষা মানুষের কাছে পৌঁছে দেওয়া
+        এবং জ্ঞান, নৈতিকতা ও প্রযুক্তির সমন্বয়ে একটি সুন্দর
+        ও কল্যাণময় সমাজ গঠনে অবদান রাখা।
+
+        <strong>
+          <br>জ্ঞান মানুষকে আলোকিত করে,
+          নৈতিকতা তাকে মর্যাদা দেয়
+          এবং প্রযুক্তি তার কল্যাণের পথকে আরও সহজ করে।
+        </strong>
+
+      </p>
+
+    </div>
+
+
+    <!-- DIVIDER -->
+    <hr class="footer-green-divider">
+
+
+    <!-- BOTTOM -->
+    <div class="footer-bottom">
+
+      <p class="copyright-text">
+
+        © ২০২৬ হাফেজ ক্বারী আবু ত্বহা মোহাম্মদ সাইফুল ইসলাম
+        — সর্বস্বত্ব সংরক্ষিত।
+
+      </p>
+
+
+      <p class="contact-details">
+
+        <i class="fa-solid fa-envelope footer-email"></i>
+
+        ই-মেইল:
+
+        <a href="mailto:si1993.sm@email.com">
+          si1993.sm@email.com
+        </a>
+
+      </p>
+
+<p class="contact-details">
+
+  <i class="fa-solid fa-mobile-screen-button footer-phone"></i>
+
+  ফোন:
+
+  <a href="tel:01638816760">
+    ০১৬৩৮৮১৬৭৬০
+  </a>
+
+</p>
+
+      <p class="footer-bottom-links">
+
+        <a href="#">
+          ফেসবুক
+        </a>
+
+        &nbsp; | &nbsp;
+
+        <a href="#">
+          ইউটিউব
+        </a>
+
+      </p>
+
+
+      <p class="prayer-text">
+
+        <i class="fa-solid fa-hands-praying footer-prayer"></i>
+
+        আল্লাহ আমাদের সকলকে ক্ষমা করুন,
+        হেদায়েত দান করুন এবং নেক আমলের তাওফিক দান করুন — আমীন।
+
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- =====================================================
+     ISLAMIC FOOTER END
+     ===================================================== -->
+        
+        
+        <!-- FLOATING WHATSAPP -->
+<div class="mte-whatsapp-float">
+  <a href="https://wa.me/8801638816760"
+     target="_blank"
+     rel="noopener"
+     aria-label="WhatsApp">
+    
+    <span class="mte-whatsapp-pulse"></span>
+
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M19.11 17.23c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.15-1.33-.79-.7-1.33-1.56-1.49-1.83-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.97 2.63 1.11 2.81c.14.18 1.9 2.9 4.61 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/>
+      <path d="M16.01 3.2C8.95 3.2 3.2 8.94 3.2 16c0 2.26.59 4.46 1.72 6.4L3.1 28.8l6.54-1.72A12.73 12.73 0 0 0 16 28.8c7.06 0 12.8-5.74 12.8-12.8S23.07 3.2 16.01 3.2zm0 23.45c-2.02 0-4-.54-5.73-1.56l-.41-.24-3.88 1.02 1.04-3.78-.27-.43A10.6 10.6 0 1 1 16.01 26.65z"/>
+    </svg>
+
+  </a>
+</div>
+  </div>
+</footer>
+<script src="/Saiful760/pwa-install.js" defer></script>
+
+<!-- =====================================================
+     MTE EXTRA FEATURES — HTML
+     01. Scroll Progress Bar
+     02. Page Loader
+     03. New Typing Animation
+     ===================================================== -->
+
+
+<!-- 01. SCROLL PROGRESS BAR -->
+<div
+  class="mte-scroll-progress"
+  id="mteScrollProgress"
+  aria-hidden="true">
+</div>
+
+
+<!-- 12. PAGE LOADER -->
+<div
+  class="mte-page-loader"
+  id="mtePageLoader">
+
+  <div class="mte-loader-content">
+
+    <div class="mte-loader-icon">
+      ☪
+    </div>
+
+    <div class="mte-loader-title">
+      লোড হচ্ছে...
+    </div>
+
+    <div class="mte-loader-line">
+      <span></span>
+    </div>
+
+  </div>
+
+</div>
+
+
+</div>
+</body>
+</html>
+
+
+
