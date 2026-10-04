@@ -141,7 +141,33 @@ body {
   text-align:center !important;
 }
 
+/* =========================================================
+   CSS: সকল পেজের Title Center + Description Center
+   + ফিরে যান বাম পাশে
+   ========================================================= */
 
+.mte-page-head h1 {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mte-page-head p {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ফিরে যান — বাম পাশে */
+.mte-page-head .mte-back {
+  display: block;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* =========================================================
+   CSS: শেষ
+   ========================================================= */
 
 
 .mte-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -13262,4 +13288,1269 @@ html{
    END: TAQWA GALLERY PAGE CSS
    ========================================================= */
 
+/* =========================================================
+   START: JUMUAH 1ST KHUTBAH CSS
+   শুধুমাত্র Route: jumuah-khutbah
+   ========================================================= */
+
+.mte-jumuah-khutbah-page{
+  width:100%;
+  padding:35px 20px 70px;
+  box-sizing:border-box;
+
+  font-family:
+    "Noto Sans Bengali",
+    "Hind Siliguri",
+    system-ui,
+    sans-serif;
+}
+
+.mte-jumuah-khutbah-card{
+  width:100%;
+  max-width:950px;
+
+  margin:0 auto;
+  padding:42px 38px;
+
+  box-sizing:border-box;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f5faf7
+    );
+
+  border:1px solid rgba(11,93,69,.16);
+  border-radius:24px;
+
+  box-shadow:
+    0 15px 40px rgba(7,59,76,.10),
+    0 3px 10px rgba(11,93,69,.06);
+
+  position:relative;
+  overflow:hidden;
+}
+
+.mte-jumuah-khutbah-card::before{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:0;
+  right:0;
+
+  height:5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #0b5d45,
+      #d6ad55,
+      #0b5d45
+    );
+}
+
+
+/* আইকন */
+
+.mte-jumuah-khutbah-icon{
+  width:78px;
+  height:78px;
+
+  margin:5px auto 18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#0b5d45;
+
+  border:3px solid #d6ad55;
+  border-radius:50%;
+
+  font-size:36px;
+
+  box-shadow:
+    0 8px 22px rgba(11,93,69,.20);
+}
+
+
+/* প্রধান শিরোনাম */
+
+.mte-jumuah-khutbah-card > h2{
+  margin:0 0 10px;
+
+  color:#073b4c;
+
+  font-size:32px;
+  font-weight:800;
+
+  line-height:1.5;
+
+  text-align:center;
+}
+
+
+/* সাবটাইটেল */
+
+.mte-jumuah-khutbah-intro{
+  margin:0 auto 32px;
+
+  color:#526b66;
+
+  font-size:17px;
+  line-height:1.9;
+
+  text-align:center;
+}
+
+
+/* Content Section */
+
+.mte-jumuah-content-section{
+  margin-bottom:32px;
+
+  padding:30px;
+
+  background:#ffffff;
+
+  border:1px solid rgba(11,93,69,.12);
+
+  border-radius:18px;
+
+  box-shadow:
+    0 5px 18px rgba(7,59,76,.05);
+}
+
+
+/* Section Title */
+
+.mte-jumuah-section-title{
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:10px;
+
+  margin-bottom:25px;
+  padding-bottom:15px;
+
+  border-bottom:
+    1px solid rgba(214,173,85,.30);
+}
+
+.mte-jumuah-section-title span{
+  width:38px;
+  height:38px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#0b5d45;
+
+  border-radius:50%;
+
+  font-size:18px;
+}
+
+.mte-jumuah-section-title h3{
+  margin:0;
+
+  color:#0b5d45;
+
+  font-size:23px;
+  font-weight:800;
+
+  line-height:1.5;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   আরবি খুৎবা
+   ========================================================= */
+
+.mte-jumuah-arabic{
+  padding:30px 26px;
+
+  background:#fffdf7;
+
+  border:1px solid rgba(214,173,85,.28);
+
+  border-radius:16px;
+
+  direction:rtl;
+}
+
+.mte-jumuah-arabic p{
+  margin:0 0 30px;
+
+  color:#173f35;
+
+  font-family:
+    "Amiri",
+    "Scheherazade New",
+    "Times New Roman",
+    serif;
+
+  font-size:26px;
+
+  font-weight:600;
+
+  line-height:2.3;
+
+  text-align:right;
+}
+
+.mte-jumuah-arabic p:last-child{
+  margin-bottom:0;
+}
+
+
+/* =========================================================
+   কুরআনের আয়াত
+   ========================================================= */
+
+.mte-jumuah-quran-box{
+  padding:30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f0f7f3,
+      #fffdf7
+    );
+
+  border:1px solid rgba(11,93,69,.15);
+
+  border-radius:18px;
+
+  text-align:center;
+}
+
+.mte-jumuah-quran-label{
+  display:inline-block;
+
+  margin-bottom:22px;
+
+  padding:8px 18px;
+
+  background:#0b5d45;
+
+  color:#ffffff;
+
+  border-radius:30px;
+
+  font-size:17px;
+  font-weight:700;
+}
+
+.mte-jumuah-quran-text{
+  padding:25px;
+
+  background:#ffffff;
+
+  border:1px solid rgba(214,173,85,.25);
+
+  border-radius:15px;
+
+  direction:rtl;
+}
+
+.mte-jumuah-quran-text p{
+  margin:0 0 20px;
+
+  color:#0b5d45;
+
+  font-family:
+    "Amiri",
+    "Scheherazade New",
+    "Times New Roman",
+    serif;
+
+  font-size:29px;
+
+  line-height:2;
+
+  text-align:center;
+}
+
+.mte-jumuah-quran-text p:last-child{
+  margin-bottom:0;
+}
+
+
+/* =========================================================
+   Hover
+   ========================================================= */
+
+.mte-jumuah-khutbah-card{
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.mte-jumuah-khutbah-card:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 20px 48px rgba(7,59,76,.13),
+    0 5px 15px rgba(11,93,69,.08);
+}
+
+
+/* =========================================================
+   Tablet
+   ========================================================= */
+
+@media(max-width:768px){
+
+  .mte-jumuah-khutbah-page{
+    padding:25px 14px 50px;
+  }
+
+  .mte-jumuah-khutbah-card{
+    padding:32px 20px;
+    border-radius:19px;
+  }
+
+  .mte-jumuah-khutbah-icon{
+    width:68px;
+    height:68px;
+    font-size:31px;
+  }
+
+  .mte-jumuah-khutbah-card > h2{
+    font-size:27px;
+  }
+
+  .mte-jumuah-content-section{
+    padding:22px 17px;
+  }
+
+  .mte-jumuah-section-title h3{
+    font-size:20px;
+  }
+
+  .mte-jumuah-arabic{
+    padding:22px 17px;
+  }
+
+  .mte-jumuah-arabic p{
+    font-size:23px;
+    line-height:2.15;
+  }
+
+  .mte-jumuah-quran-box{
+    padding:22px 17px;
+  }
+
+  .mte-jumuah-quran-text{
+    padding:20px 15px;
+  }
+
+  .mte-jumuah-quran-text p{
+    font-size:25px;
+  }
+
+}
+
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media(max-width:480px){
+
+  .mte-jumuah-khutbah-page{
+    padding:20px 10px 40px;
+  }
+
+  .mte-jumuah-khutbah-card{
+    padding:27px 13px;
+    border-radius:16px;
+  }
+
+  .mte-jumuah-khutbah-icon{
+    width:60px;
+    height:60px;
+    font-size:27px;
+  }
+
+  .mte-jumuah-khutbah-card > h2{
+    font-size:24px;
+  }
+
+  .mte-jumuah-khutbah-intro{
+    font-size:14px;
+  }
+
+  .mte-jumuah-content-section{
+    padding:19px 12px;
+  }
+
+  .mte-jumuah-section-title{
+    margin-bottom:19px;
+  }
+
+  .mte-jumuah-section-title span{
+    width:34px;
+    height:34px;
+    font-size:16px;
+  }
+
+  .mte-jumuah-section-title h3{
+    font-size:18px;
+  }
+
+  .mte-jumuah-arabic{
+    padding:18px 13px;
+  }
+
+  .mte-jumuah-arabic p{
+    font-size:20px;
+    line-height:2;
+  }
+
+  .mte-jumuah-quran-box{
+    padding:19px 13px;
+  }
+
+  .mte-jumuah-quran-label{
+    font-size:15px;
+  }
+
+  .mte-jumuah-quran-text{
+    padding:17px 12px;
+  }
+
+  .mte-jumuah-quran-text p{
+    font-size:21px;
+    line-height:1.9;
+  }
+
+}
+
+
+/* =========================================================
+   END: JUMUAH 1ST KHUTBAH CSS
+   ========================================================= */
+
+   /* =========================================================
+   START: JUMUAH 2ND KHUTBAH CSS
+   ========================================================= */
+
+.mte-jumuah-second-section{
+  width:100%;
+  margin-top:32px;
+  padding:30px;
+
+  box-sizing:border-box;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f0f7f3,
+      #fffdf7
+    );
+
+  border:1px solid rgba(11,93,69,.15);
+  border-radius:18px;
+
+  box-shadow:
+    0 6px 20px rgba(7,59,76,.06);
+}
+
+
+/* শিরোনাম */
+
+.mte-jumuah-second-title{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:14px;
+
+  margin-bottom:25px;
+  padding-bottom:18px;
+
+  border-bottom:
+    1px solid rgba(214,173,85,.35);
+
+  text-align:center;
+}
+
+.mte-jumuah-second-title > span{
+  width:52px;
+  height:52px;
+
+  flex-shrink:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#0b5d45;
+
+  border:2px solid #d6ad55;
+  border-radius:50%;
+
+  font-size:24px;
+}
+
+.mte-jumuah-second-title h3{
+  margin:0;
+
+  color:#0b5d45;
+
+  font-family:
+    "Noto Sans Bengali",
+    "Hind Siliguri",
+    sans-serif;
+
+  font-size:25px;
+  font-weight:800;
+
+  line-height:1.5;
+}
+
+.mte-jumuah-second-title p{
+  margin:3px 0;
+
+  color:#526b66;
+
+  font-family:
+    "Amiri",
+    "Times New Roman",
+    serif;
+
+  font-size:20px;
+
+  direction:rtl;
+}
+
+.mte-jumuah-second-title small{
+  display:block;
+
+  color:#7a6a42;
+
+  font-size:14px;
+
+  line-height:1.8;
+}
+
+
+/* =========================================================
+   আরবি ২য় খুৎবা
+   ========================================================= */
+
+.mte-jumuah-second-arabic{
+  padding:30px 28px;
+
+  background:#fffdf8;
+
+  border:1px solid rgba(214,173,85,.28);
+
+  border-left:5px solid #d6ad55;
+
+  border-radius:16px;
+
+  direction:rtl;
+}
+
+.mte-jumuah-second-arabic p{
+  margin:0 0 30px;
+
+  color:#173f35;
+
+  font-family:
+    "Amiri",
+    "Scheherazade New",
+    "Times New Roman",
+    serif;
+
+  font-size:26px;
+
+  font-weight:600;
+
+  line-height:2.35;
+
+  text-align:right;
+}
+
+.mte-jumuah-second-arabic p:last-child{
+  margin-bottom:0;
+}
+
+
+/* =========================================================
+   Tablet
+   ========================================================= */
+
+@media(max-width:768px){
+
+  .mte-jumuah-second-section{
+    margin-top:25px;
+    padding:22px 17px;
+  }
+
+  .mte-jumuah-second-title{
+    gap:10px;
+  }
+
+  .mte-jumuah-second-title > span{
+    width:45px;
+    height:45px;
+    font-size:21px;
+  }
+
+  .mte-jumuah-second-title h3{
+    font-size:21px;
+  }
+
+  .mte-jumuah-second-title p{
+    font-size:17px;
+  }
+
+  .mte-jumuah-second-title small{
+    font-size:13px;
+  }
+
+  .mte-jumuah-second-arabic{
+    padding:23px 18px;
+  }
+
+  .mte-jumuah-second-arabic p{
+    font-size:23px;
+    line-height:2.2;
+  }
+
+}
+
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media(max-width:480px){
+
+  .mte-jumuah-second-section{
+    margin-top:22px;
+    padding:19px 12px;
+
+    border-radius:16px;
+  }
+
+  .mte-jumuah-second-title{
+    flex-direction:column;
+
+    gap:8px;
+
+    padding-bottom:15px;
+  }
+
+  .mte-jumuah-second-title > span{
+    width:44px;
+    height:44px;
+    font-size:20px;
+  }
+
+  .mte-jumuah-second-title h3{
+    font-size:19px;
+  }
+
+  .mte-jumuah-second-title p{
+    font-size:16px;
+  }
+
+  .mte-jumuah-second-title small{
+    font-size:12px;
+    line-height:1.7;
+  }
+
+  .mte-jumuah-second-arabic{
+    padding:18px 13px;
+
+    border-left:4px solid #d6ad55;
+  }
+
+  .mte-jumuah-second-arabic p{
+    font-size:20px;
+    line-height:2.05;
+
+    margin-bottom:25px;
+  }
+
+}
+
+
+/* =========================================================
+   END: JUMUAH 2ND KHUTBAH CSS
+   ========================================================= */
    
+
+   /* =========================================================
+   START: NIKAH-KHUTBAH PAGE CSS
+   শুধুমাত্র Route: nikah-khutbah
+   ========================================================= */
+
+.mte-nikah-khutbah-page{
+  width:100%;
+  padding:35px 20px 70px;
+  box-sizing:border-box;
+  font-family:"Noto Sans Bengali","Hind Siliguri",system-ui,sans-serif;
+}
+
+/* মূল কার্ড */
+.mte-nikah-khutbah-card{
+  width:100%;
+  max-width:950px;
+  margin:0 auto;
+  padding:42px 38px;
+  box-sizing:border-box;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #f8fcf9 100%
+    );
+
+  border:1px solid rgba(11,93,69,.16);
+  border-radius:24px;
+
+  box-shadow:
+    0 15px 40px rgba(7,59,76,.10),
+    0 3px 10px rgba(11,93,69,.06);
+
+  position:relative;
+  overflow:hidden;
+}
+
+/* উপরের সবুজ-গোল্ড লাইন */
+.mte-nikah-khutbah-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #0b5d45,
+      #d6ad55,
+      #0b5d45
+    );
+}
+
+/* বিয়ের আইকন */
+.mte-nikah-khutbah-icon{
+  width:78px;
+  height:78px;
+
+  margin:5px auto 18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#0b5d45;
+  border:3px solid #d6ad55;
+  border-radius:50%;
+
+  font-size:36px;
+
+  box-shadow:
+    0 8px 22px rgba(11,93,69,.20);
+}
+
+/* প্রধান শিরোনাম */
+.mte-nikah-khutbah-card > h2{
+  margin:0 0 10px;
+
+  color:#073b4c;
+
+  font-family:
+    "Noto Sans Bengali",
+    "Hind Siliguri",
+    sans-serif;
+
+  font-size:32px;
+  font-weight:800;
+  line-height:1.5;
+
+  text-align:center;
+}
+
+/* সাবটাইটেল */
+.mte-nikah-khutbah-intro{
+  max-width:750px;
+
+  margin:0 auto 30px;
+
+  color:#526b66;
+
+  font-size:17px;
+  line-height:1.9;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   ভূমিকা
+   ========================================================= */
+
+.mte-nikah-info-box{
+  margin:0 auto 32px;
+
+  padding:25px 28px;
+
+  background:#f0f7f3;
+
+  border:1px solid rgba(11,93,69,.13);
+  border-left:4px solid #0b5d45;
+
+  border-radius:16px;
+
+  text-align:left;
+}
+
+.mte-nikah-info-box p{
+  margin:0 0 16px;
+
+  color:#304943;
+
+  font-size:16px;
+  line-height:2;
+
+  text-align:justify;
+}
+
+.mte-nikah-info-box p:last-child{
+  margin-bottom:0;
+}
+
+
+/* =========================================================
+   প্রতিটি Content Section
+   ========================================================= */
+
+.mte-nikah-content-section{
+  margin:0 0 32px;
+
+  padding:30px;
+
+  background:#ffffff;
+
+  border:1px solid rgba(11,93,69,.12);
+  border-radius:18px;
+
+  box-shadow:
+    0 5px 18px rgba(7,59,76,.05);
+}
+
+
+/* Section Title */
+.mte-nikah-section-title{
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:10px;
+
+  margin:0 0 25px;
+
+  padding-bottom:15px;
+
+  border-bottom:1px solid rgba(214,173,85,.30);
+}
+
+.mte-nikah-section-title span{
+  width:38px;
+  height:38px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#0b5d45;
+
+  border-radius:50%;
+
+  font-size:18px;
+}
+
+.mte-nikah-section-title h3{
+  margin:0;
+
+  color:#0b5d45;
+
+  font-family:
+    "Noto Sans Bengali",
+    "Hind Siliguri",
+    sans-serif;
+
+  font-size:23px;
+  font-weight:800;
+
+  line-height:1.5;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   আরবি খুতবা
+   ========================================================= */
+
+.mte-nikah-arabic{
+  padding:28px 25px;
+
+  background:#fffdf7;
+
+  border:1px solid rgba(214,173,85,.28);
+  border-radius:15px;
+
+  direction:rtl;
+}
+
+.mte-nikah-arabic p{
+  margin:0 0 28px;
+
+  color:#173f35;
+
+  font-family:
+    "Amiri",
+    "Scheherazade New",
+    "Times New Roman",
+    serif;
+
+  font-size:26px;
+  font-weight:600;
+
+  line-height:2.25;
+
+  text-align:right;
+}
+
+.mte-nikah-arabic p:last-child{
+  margin-bottom:0;
+}
+
+
+/* =========================================================
+   বাংলা উচ্চারণ
+   ========================================================= */
+
+.mte-nikah-pronunciation{
+  padding:25px;
+
+  background:#f6faf8;
+
+  border-left:4px solid #0b5d45;
+
+  border-radius:14px;
+}
+
+.mte-nikah-pronunciation p{
+  margin:0 0 22px;
+
+  color:#293f3a;
+
+  font-size:17px;
+  line-height:2.05;
+
+  text-align:justify;
+}
+
+.mte-nikah-pronunciation p:last-child{
+  margin-bottom:0;
+}
+
+
+/* =========================================================
+   বাংলা অর্থ
+   ========================================================= */
+
+.mte-nikah-meaning{
+  padding:25px;
+
+  background:#fbfaf5;
+
+  border-left:4px solid #d6ad55;
+
+  border-radius:14px;
+}
+
+.mte-nikah-meaning p{
+  margin:0 0 22px;
+
+  color:#293f3a;
+
+  font-size:17px;
+  line-height:2.05;
+
+  text-align:justify;
+}
+
+.mte-nikah-meaning p:last-child{
+  margin-bottom:0;
+}
+
+
+/* =========================================================
+   বিয়েতে খুতবা পড়ার বিধান
+   ========================================================= */
+
+.mte-nikah-rules{
+  margin-top:5px;
+
+  padding:30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f0f7f3,
+      #fffdf7
+    );
+
+  border:1px solid rgba(11,93,69,.15);
+
+  border-radius:18px;
+
+  box-shadow:
+    0 6px 20px rgba(7,59,76,.05);
+}
+
+.mte-nikah-rules-content{
+  padding:25px;
+
+  background:#ffffff;
+
+  border-radius:14px;
+
+  border:1px solid rgba(11,93,69,.10);
+}
+
+.mte-nikah-rules-content p{
+  margin:0 0 22px;
+
+  color:#293f3a;
+
+  font-size:17px;
+  line-height:2.05;
+
+  text-align:justify;
+}
+
+.mte-nikah-rules-content p:last-child{
+  margin-bottom:0;
+}
+
+
+/* =========================================================
+   HOVER EFFECT
+   ========================================================= */
+
+.mte-nikah-khutbah-card{
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.mte-nikah-khutbah-card:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 20px 48px rgba(7,59,76,.13),
+    0 5px 15px rgba(11,93,69,.08);
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media(max-width:768px){
+
+  .mte-nikah-khutbah-page{
+    padding:25px 14px 50px;
+  }
+
+  .mte-nikah-khutbah-card{
+    padding:32px 20px;
+    border-radius:19px;
+  }
+
+  .mte-nikah-khutbah-icon{
+    width:68px;
+    height:68px;
+    font-size:31px;
+  }
+
+  .mte-nikah-khutbah-card > h2{
+    font-size:27px;
+  }
+
+  .mte-nikah-khutbah-intro{
+    font-size:15px;
+  }
+
+  .mte-nikah-info-box{
+    padding:20px;
+  }
+
+  .mte-nikah-content-section{
+    padding:22px 17px;
+    border-radius:16px;
+  }
+
+  .mte-nikah-section-title{
+    gap:8px;
+  }
+
+  .mte-nikah-section-title h3{
+    font-size:20px;
+  }
+
+  .mte-nikah-arabic{
+    padding:22px 17px;
+  }
+
+  .mte-nikah-arabic p{
+    font-size:23px;
+    line-height:2.15;
+  }
+
+  .mte-nikah-pronunciation,
+  .mte-nikah-meaning{
+    padding:20px 17px;
+  }
+
+  .mte-nikah-pronunciation p,
+  .mte-nikah-meaning p,
+  .mte-nikah-rules-content p{
+    font-size:16px;
+    line-height:1.95;
+  }
+
+  .mte-nikah-rules{
+    padding:22px 17px;
+  }
+
+  .mte-nikah-rules-content{
+    padding:20px 17px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media(max-width:480px){
+
+  .mte-nikah-khutbah-page{
+    padding:20px 10px 40px;
+  }
+
+  .mte-nikah-khutbah-card{
+    padding:27px 13px;
+    border-radius:16px;
+  }
+
+  .mte-nikah-khutbah-icon{
+    width:60px;
+    height:60px;
+    font-size:27px;
+  }
+
+  .mte-nikah-khutbah-card > h2{
+    font-size:24px;
+  }
+
+  .mte-nikah-khutbah-intro{
+    font-size:14px;
+    line-height:1.8;
+  }
+
+  .mte-nikah-info-box{
+    padding:17px 14px;
+  }
+
+  .mte-nikah-info-box p{
+    font-size:15px;
+    line-height:1.9;
+    text-align:left;
+  }
+
+  .mte-nikah-content-section{
+    padding:19px 12px;
+    margin-bottom:22px;
+  }
+
+  .mte-nikah-section-title{
+    margin-bottom:19px;
+  }
+
+  .mte-nikah-section-title span{
+    width:34px;
+    height:34px;
+    font-size:16px;
+  }
+
+  .mte-nikah-section-title h3{
+    font-size:18px;
+  }
+
+  .mte-nikah-arabic{
+    padding:18px 13px;
+  }
+
+  .mte-nikah-arabic p{
+    font-size:20px;
+    line-height:2;
+  }
+
+  .mte-nikah-pronunciation,
+  .mte-nikah-meaning{
+    padding:17px 14px;
+  }
+
+  .mte-nikah-pronunciation p,
+  .mte-nikah-meaning p{
+    font-size:15px;
+    line-height:1.9;
+    text-align:left;
+  }
+
+  .mte-nikah-rules{
+    padding:19px 13px;
+  }
+
+  .mte-nikah-rules-content{
+    padding:17px 14px;
+  }
+
+  .mte-nikah-rules-content p{
+    font-size:15px;
+    line-height:1.9;
+    text-align:left;
+  }
+
+}
+
+
+/* =========================================================
+   END: NIKAH-KHUTBAH PAGE CSS
+   ========================================================= */
