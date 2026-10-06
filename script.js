@@ -162,6 +162,7 @@ const mteRoutes = {
   courses: "অনলাইন কোর্স",
   quran: "কুরআন শিক্ষা",
   alquran: "আল কুরআনুল কারীম",
+  dua: "দোয়া ও যিকির",
   tajweed: "তাজবীদ",
 
   hifz: "হিফজ",
@@ -183,7 +184,6 @@ const mteRoutes = {
   contact: "যোগাযোগ"
 
 };
-
 
 /* =========================================================
    BASIC DOM ELEMENTS
