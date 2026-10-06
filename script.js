@@ -1540,7 +1540,122 @@ function mteHome() {
   `;
 }
 
+function mteBuildDuaHomeSection() {
+  return `
+    <!-- দোয়া ও যিকির — Home Section -->
+    <section class="mte-dua-home-section" id="home-dua">
 
+      <div class="mte-dua-section-header">
+
+        <span class="mte-dua-section-badge">
+          🤲 আমল ও ইবাদত
+        </span>
+
+        <h2>দোয়া ও যিকির</h2>
+
+        <p>
+          প্রতিদিনের প্রয়োজনীয় দোয়া ও যিকির শিখুন,
+          অর্থ বুঝে আমল করুন এবং আল্লাহর নৈকট্য
+          অর্জনের চেষ্টা করুন।
+        </p>
+
+      </div>
+
+
+      <div class="mte-dua-home-grid">
+
+        <!-- সকাল-সন্ধ্যার দোয়া -->
+        <div class="mte-dua-home-card">
+
+          <div class="mte-dua-card-icon">
+            🌅
+          </div>
+
+          <div class="mte-dua-card-content">
+            <h3>সকাল-সন্ধ্যার দোয়া</h3>
+
+            <p>
+              সকাল ও সন্ধ্যায় পাঠযোগ্য গুরুত্বপূর্ণ
+              দোয়া ও যিকির।
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- নামাজের দোয়া -->
+        <div class="mte-dua-home-card">
+
+          <div class="mte-dua-card-icon">
+            🕌
+          </div>
+
+          <div class="mte-dua-card-content">
+            <h3>নামাজের দোয়া</h3>
+
+            <p>
+              নামাজের আগে-পরে এবং নামাজের বিভিন্ন
+              সময়ে পাঠযোগ্য দোয়া।
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- খাওয়া-দাওয়ার দোয়া -->
+        <div class="mte-dua-home-card">
+
+          <div class="mte-dua-card-icon">
+            🍽️
+          </div>
+
+          <div class="mte-dua-card-content">
+            <h3>খাওয়া-দাওয়ার দোয়া</h3>
+
+            <p>
+              খাবার গ্রহণ ও শেষ করার সময়ের
+              প্রয়োজনীয় মাসনূন দোয়া।
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- দৈনন্দিন জীবনের দোয়া -->
+        <div class="mte-dua-home-card">
+
+          <div class="mte-dua-card-icon">
+            🏠
+          </div>
+
+          <div class="mte-dua-card-content">
+            <h3>দৈনন্দিন জীবনের দোয়া</h3>
+
+            <p>
+              ঘর থেকে বের হওয়া, ঘরে প্রবেশসহ
+              প্রতিদিনের প্রয়োজনীয় দোয়া।
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- সব দোয়া দেখুন -->
+      <div class="mte-dua-view-all">
+
+        <a href="#dua" data-mte-route>
+          <span>📖</span>
+          সব দোয়া দেখুন
+          <span class="arrow">→</span>
+        </a>
+
+      </div>
+
+    </section>
+  `;
+}
 
 /* =========================================================
    AL-QURAN — STANDALONE ROUTED PAGE
