@@ -1148,6 +1148,7 @@ function mteHome() {
 
   </section>
 
+  ${mteBuildDuaHomeSection()}
 
   <!-- =====================================================
        আজকের আমল
