@@ -15661,3 +15661,22 @@ body.mte-dark-mode .dua-last-read {
 }
 
 
+/* মোবাইল ডিভাইসে দোয়া ও জিকির তালিকা দৃশ্যমান করার জন্য */
+@media screen and (max-width: 768px) {
+  .mte-doya-list, 
+  #duaList1, 
+  #duaList2 {
+    width: 100% !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* দোয়ার কার্ডগুলোর রেসপন্সিভ ডিজাইন */
+  .dua-card, 
+  .mte-doya-card {
+    width: 100% !important;
+    margin-bottom: 12px !important;
+    padding: 15px !important;
+    box-sizing: border-box !important;
+  }
+}
