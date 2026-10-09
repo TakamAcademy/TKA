@@ -15090,3 +15090,574 @@ html{
 
 }
 
+
+/* ===== ইসলামি মাসায়েল পেজ শুরু ===== */
+
+.mte-masayel-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 16px 50px;
+  color: #24382d;
+}
+
+.mte-masayel-header {
+  padding: 32px 18px;
+  margin-bottom: 24px;
+  text-align: center;
+  border: 1px solid #d6e8d9;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #e8f5eb, #fff8e8);
+}
+
+.mte-masayel-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background: #176b45;
+  color: white;
+  font-size: 30px;
+}
+
+.mte-masayel-header h1 {
+  margin: 0 0 12px;
+  color: #145638;
+  font-size: clamp(25px, 5vw, 36px);
+}
+
+.mte-masayel-header p {
+  margin: 0;
+  line-height: 1.9;
+}
+
+.mte-masayel-notice {
+  padding: 18px;
+  margin-bottom: 24px;
+  border-left: 4px solid #c69b36;
+  border-radius: 10px;
+  background: #fff9e9;
+  line-height: 1.9;
+}
+
+.mte-masayel-notice p {
+  margin: 6px 0 0;
+}
+
+.mte-masayel-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.mte-masayel-card {
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid #e0e9df;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 5px 18px rgba(25, 70, 45, 0.07);
+}
+
+.mte-masayel-category {
+  display: inline-block;
+  padding: 5px 12px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  background: #e7f5e9;
+  color: #176b45;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.mte-masayel-card h2 {
+  margin: 0 0 14px;
+  color: #17583b;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.mte-masayel-card p,
+.mte-masayel-card li {
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+.mte-masayel-card ol {
+  padding-left: 22px;
+  margin-bottom: 0;
+}
+
+.mte-masayel-footer {
+  margin-top: 28px;
+  padding: 18px;
+  text-align: center;
+  border-radius: 12px;
+  background: #f0f7ef;
+  color: #17583b;
+  line-height: 1.9;
+}
+
+.mte-masayel-footer p {
+  margin: 0;
+}
+
+@media (max-width: 650px) {
+  .mte-masayel-page {
+    padding: 18px 12px 35px;
+  }
+
+  .mte-masayel-list {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .mte-masayel-card {
+    padding: 18px;
+  }
+
+  .mte-masayel-header {
+    padding: 25px 14px;
+  }
+}
+/* ===== ইসলামি মাসায়েল পেজ শেষ ===== */
+
+
+/* =========================================================
+   START: doya-o-jikir Complete & Final Fixed Styles
+   ========================================================= */
+
+.mte-doya-page {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'SolaimanLipi', Arial, sans-serif;
+}
+
+.mte-doya-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.mte-doya-icon {
+  font-size: 38px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.mte-doya-header h1 {
+  font-size: 28px;
+  color: #10854d;
+  margin: 0 0 8px 0;
+  font-weight: bold;
+}
+
+.mte-doya-header p {
+  color: #555555;
+  font-size: 15px;
+  margin: 0;
+}
+
+.mte-doya-notice {
+  background-color: #e8f5e9;
+  border-left: 5px solid #10854d;
+  padding: 15px 18px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+}
+
+.mte-doya-notice strong {
+  color: #10854d;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.mte-doya-notice p {
+  margin: 0;
+  color: #333333;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* List & Cards Design */
+.mte-doya-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mte-doya-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #10854d;
+  border-radius: 8px;
+  padding: 16px 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mte-doya-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.mte-doya-category {
+  display: inline-block;
+  background-color: #e8f5e9;
+  color: #10854d;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.mte-doya-card h2 {
+  font-size: 18px;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.mte-doya-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px dashed #cbd5e1;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* =========================================================
+   Modal Popup - 100% Scroll & Visibility Fix
+   ========================================================= */
+
+.mte-doya-modal {
+  display: none;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 999999 !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.mte-doya-modal-content {
+  background: #f8fafc !important;
+  border-radius: 12px !important;
+  width: 100% !important;
+  max-width: 650px !important;
+  max-height: 85vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
+  overflow: hidden !important;
+}
+
+/* Modal Green Header Bar (ফিক্সড থাকবে) */
+.mte-modal-header-bar {
+  background-color: #10854d !important;
+  color: #ffffff !important;
+  padding: 14px 18px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  z-index: 10 !important;
+}
+
+.mte-modal-header-titles h2 {
+  font-size: 16px !important;
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+}
+
+.mte-modal-subtitle {
+  font-size: 12px !important;
+  color: #e2f7e8 !important;
+  display: block !important;
+  margin-top: 3px !important;
+}
+
+.mte-modal-close-btn {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border: none !important;
+  color: #ffffff !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50% !important;
+  font-size: 20px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.mte-modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Modal Scrollable Body Area (এর ভেতরেই স্ক্রল হবে) */
+.mte-doya-modal-body {
+  padding: 16px !important;
+  overflow-y: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  background: #f8fafc !important;
+  flex-grow: 1 !important;
+  max-height: calc(85vh - 70px) !important;
+}
+
+/* সুন্দর স্ক্রলবার স্টাইল */
+.mte-doya-modal-body::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+.mte-doya-modal-body::-webkit-scrollbar-track {
+  background: #e2e8f0 !important;
+}
+
+.mte-doya-modal-body::-webkit-scrollbar-thumb {
+  background: #10854d !important;
+  border-radius: 4px !important;
+}
+
+/* Action Buttons */
+.mte-modal-action-buttons {
+  display: flex !important;
+  gap: 10px !important;
+  flex-shrink: 0 !important;
+}
+
+.mte-action-btn {
+  flex: 1 !important;
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 6px !important;
+  padding: 9px 12px !important;
+  font-size: 13px !important;
+  color: #0284c7 !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  text-align: center !important;
+}
+
+.mte-action-btn:hover {
+  background: #f0f9ff !important;
+}
+
+/* Section Card Boxes */
+.mte-modal-card-box {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+}
+
+.mte-card-box-header {
+  background: #f1f5f9 !important;
+  padding: 8px 14px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #10854d !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.mte-card-box-body {
+  padding: 12px 14px !important;
+  font-size: 15px !important;
+  color: #1e293b !important;
+  line-height: 1.7 !important;
+  white-space: pre-line !important;
+}
+
+.mte-card-box-body.img-body {
+  padding: 8px !important;
+}
+
+.mte-doya-modal-img {
+  width: 100% !important;
+  max-height: 250px !important;
+  object-fit: cover !important;
+  border-radius: 6px !important;
+  display: block !important;
+}
+
+/* Arabic Text Style */
+.mte-card-box-body.mte-doya-arabic {
+  font-size: 24px !important;
+  text-align: right !important;
+  direction: rtl !important;
+  color: #0f172a !important;
+  line-height: 2 !important;
+  font-family: 'Amiri', 'Traditional Arabic', serif !important;
+  background: #ffffff !important;
+}
+
+/* =========================================================
+   MODAL BODY - Scroll & Content Fix
+   ========================================================= */
+
+.dua-modal-body{
+  max-height: calc(92vh - 90px) !important;
+  overflow-y: auto !important;
+  padding: 17px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+/* কাস্টম স্ক্রলবার ডিজাইন */
+.dua-modal-body::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.dua-modal-body::-webkit-scrollbar-track {
+  background: #f1f5f9 !important;
+}
+
+.dua-modal-body::-webkit-scrollbar-thumb {
+  background: #087443 !important;
+  border-radius: 10px !important;
+}
+
+/* =========================================================
+   Advanced Modern UI & Modal Scrolling Fixes
+   ========================================================= */
+
+/* Modal Backdrop & Layout */
+.mte-doya-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.65);
+  align-items: center;
+  justify-content: center;
+}
+
+.mte-doya-modal-content {
+  width: min(850px, 100%);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Scrollable Body */
+.mte-doya-modal-body {
+  padding: 17px;
+  overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Scrollbar Style */
+.mte-doya-modal-body::-webkit-scrollbar {
+  width: 7px;
+}
+.mte-doya-modal-body::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.mte-doya-modal-body::-webkit-scrollbar-thumb {
+  background: #087443;
+  border-radius: 4px;
+}
+
+/* Arabic Fonts */
+.font-amiri { font-family: "Amiri", serif !important; }
+.font-naskh { font-family: "Noto Naskh Arabic", serif !important; }
+.font-scheherazade { font-family: "Scheherazade New", serif !important; }
+.font-lateef { font-family: "Lateef", serif !important; }
+.font-cairo { font-family: "Cairo", sans-serif !important; }
+
+/* Dark Mode Support */
+body.mte-dark-mode {
+  background: #101714 !important;
+  color: #e8f1eb !important;
+}
+body.mte-dark-mode .mte-doya-modal-content {
+  background: #18211d !important;
+  color: #e8f1eb !important;
+}
+
+/* =========================================================
+   ডার্ক মোড কালার ও স্টাইল কনফিগারেশন
+   ========================================================= */
+
+body.dua-dark-mode, 
+body.mte-dark-mode {
+  background-color: #101714 !important;
+  color: #e8f1eb !important;
+}
+
+/* হেডার সেকশন ডার্ক মোড */
+body.dua-dark-mode .dua-header,
+body.mte-dark-mode .dua-header {
+  background: linear-gradient(135deg, #053b22, #085c36) !important;
+}
+
+/* সার্চ ও টুলবার বক্স ডার্ক মোড */
+body.dua-dark-mode .dua-extra-tools,
+body.mte-dark-mode .dua-extra-tools {
+  background-color: #18211d !important;
+  border-color: #273830 !important;
+}
+
+/* সার্চ ইনপুট ও ড্রপডাউন ডার্ক মোড */
+body.dua-dark-mode input[type="text"],
+body.dua-dark-mode select,
+body.mte-dark-mode input[type="text"],
+body.mte-dark-mode select {
+  background-color: #121a16 !important;
+  color: #e8f1eb !important;
+  border-color: #273830 !important;
+}
+
+/* দোয়ার কার্ডসমূহ ডার্ক মোড */
+body.dua-dark-mode .mte-doya-card,
+body.dua-dark-mode .dua-item,
+body.mte-dark-mode .mte-doya-card,
+body.mte-dark-mode .dua-item {
+  background-color: #18211d !important;
+  border-color: #273830 !important;
+  color: #e8f1eb !important;
+}
+
+/* কার্ডের ভেতরের শিরোনাম ডার্ক মোড */
+body.dua-dark-mode .mte-doya-card h2,
+body.dua-dark-mode .dua-item-title,
+body.mte-dark-mode .mte-doya-card h2,
+body.mte-dark-mode .dua-item-title {
+  color: #f1f7f3 !important;
+}
+
+/* সর্বশেষ পঠিত বক্স ডার্ক মোড */
+body.dua-dark-mode .dua-last-read,
+body.mte-dark-mode .dua-last-read {
+  background-color: #15241b !important;
+  color: #6ee7b7 !important;
+}
+
+
