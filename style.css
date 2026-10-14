@@ -16033,3 +16033,11 @@ body:has(.mte-doya-page) .mte-doya-page > .dua-header {
         object-position: center 45% !important;
     }
 }
+/* মোবাইলে শুধু হিরো স্লাইডারের অ্যারো বাটন লুকানো */
+@media screen and (max-width: 768px) {
+    #mteHeroSlider .mte-slider-control,
+    #mteHeroSlider #mtePrev,
+    #mteHeroSlider #mteNext {
+        display: none !important;
+    }
+}
