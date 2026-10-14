@@ -16002,3 +16002,34 @@ body:has(.mte-doya-page) .mte-doya-page > .dua-header {
         min-height: 80svh !important;
     }
 }
+
+/* হিরো স্লাইডারের ছবির ফিটিং ঠিক করা */
+.mte-hero img,
+.mte-hero-slider img,
+.hero-slider img,
+.hero-section img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+/* স্লাইডারের ব্যাকগ্রাউন্ড ছবি হলে */
+.mte-hero,
+.mte-hero-slider,
+.hero-slider,
+.hero-section {
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+/* মোবাইলে ছবির অবস্থান সামান্য ওপরে রাখা */
+@media (max-width: 768px) {
+    .mte-hero img,
+    .mte-hero-slider img,
+    .hero-slider img,
+    .hero-section img {
+        object-position: center 45% !important;
+    }
+}
