@@ -15945,3 +15945,60 @@ body:has(.mte-doya-page) .mte-doya-page > .dua-header {
     border-radius: 20px !important;
   }
 }
+
+/* =========================================
+   FULL SCREEN HERO SLIDER
+   ========================================= */
+
+/* হোমপেজে হিরো স্লাইডার পুরো স্ক্রিন জুড়ে */
+.mte-hero,
+.mte-hero-slider,
+.hero-slider,
+.hero-section {
+    min-height: 100vh !important;
+    height: 100vh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    overflow: hidden !important;
+    position: relative;
+}
+
+/* স্লাইডারের ছবি পুরো জায়গা পূরণ করবে */
+.mte-hero img,
+.mte-hero-slider img,
+.hero-slider img,
+.hero-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* স্লাইডারের ভেতরের কনটেন্ট উল্লম্বভাবে মাঝখানে */
+.mte-hero .container,
+.mte-hero-slider .container,
+.hero-slider .container,
+.hero-section .container {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* প্রথম স্ক্রিনে About/প্রোফাইল ছবি লুকানো */
+.mte-hero ~ .mte-profile,
+.mte-hero ~ .taqwa-about-page,
+.hero-section ~ .mte-profile {
+    margin-top: 0 !important;
+}
+
+/* মোবাইল স্ক্রিন */
+@media (max-width: 768px) {
+    .mte-hero,
+    .mte-hero-slider,
+    .hero-slider,
+    .hero-section {
+        height: 100svh !important;
+        min-height: 100svh !important;
+    }
+}
