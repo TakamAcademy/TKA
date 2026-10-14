@@ -15998,7 +15998,7 @@ body:has(.mte-doya-page) .mte-doya-page > .dua-header {
     .mte-hero-slider,
     .hero-slider,
     .hero-section {
-        height: 100svh !important;
-        min-height: 100svh !important;
+        height: 80svh !important;
+        min-height: 80svh !important;
     }
 }
