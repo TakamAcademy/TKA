@@ -15949,3 +15949,1062 @@ function renderListCustom(list, targetId){
   }
   window.addEventListener('hashchange', syncNewTypingWithRoute);
 })();
+
+(function(){
+"use strict";
+
+const $ = id => document.getElementById(id);
+const audio = $("mte-audio-element");
+const home = $("mte-audio-home");
+const library = $("mte-audio-library");
+const list = $("mte-audio-track-list");
+const libraryButton = $("mte-open-audio-library");
+const backButton = $("mte-audio-back");
+
+if(!audio || !home || !library || !list) return;
+
+/*
+  অডিও যোগ করার নিয়ম:
+  tracks তালিকায় নতুন object যোগ করুন।
+  src-তে সরাসরি কাজ করা MP3 URL দিন।
+*/
+const tracks = [
+  {
+    id:1,
+    title:"সূরা আল-ফাতিহা",
+    category:"কুরআন তিলাওয়াত · মিশারি আল-আফাসি",
+    album:"কুরআন তিলাওয়াত",
+    src:"https://server8.mp3quran.net/afs/001.mp3"
+  },
+  {
+    id:2,
+    title:"সূরা ইয়াসিন",
+    category:"কুরআন তিলাওয়াত · মিশারি আল-আফাসি",
+    album:"কুরআন তিলাওয়াত",
+    src:"https://server8.mp3quran.net/afs/036.mp3"
+  },
+  {
+    id:3,
+    title:"সূরা আর-রহমান",
+    category:"কুরআন তিলাওয়াত · মিশারি আল-আফাসি",
+    album:"কুরআন তিলাওয়াত",
+    src:"https://server8.mp3quran.net/afs/055.mp3"
+  },
+  {
+    id:4,
+    title:"সূরা আল-ওয়াকিয়া",
+    category:"কুরআন তিলাওয়াত · মিশারি আল-আফাসি",
+    album:"কুরআন তিলাওয়াত",
+    src:"https://server8.mp3quran.net/afs/056.mp3"
+  },
+  {
+    id:5,
+    title:"সূরা আল-মুলক",
+    category:"কুরআন তিলাওয়াত · মিশারি আল-আফাসি",
+    album:"কুরআন তিলাওয়াত",
+    src:"https://server8.mp3quran.net/afs/067.mp3"
+  }
+];
+
+let currentId = null;
+let mode = "all";
+let repeatOne = false;
+let shuffle = false;
+let favorites = new Set();
+
+try {
+  favorites = new Set(
+    JSON.parse(localStorage.getItem("mteAudioFavorites") || "[]")
+  );
+} catch(e) {
+  favorites = new Set();
+}
+
+function saveFavorites(){
+  try {
+    localStorage.setItem(
+      "mteAudioFavorites",
+      JSON.stringify([...favorites])
+    );
+  } catch(e) {}
+}
+
+function getVisibleTracks(){
+  if(mode === "favorites"){
+    return tracks.filter(t => favorites.has(t.id));
+  }
+
+  if(mode === "album"){
+    const selected = tracks.find(t => t.id === currentId) || tracks[0];
+    return selected ? tracks.filter(t => t.album === selected.album) : [];
+  }
+
+  return tracks;
+}
+
+function formatTime(seconds){
+  if(!Number.isFinite(seconds)) return "0:00";
+  return Math.floor(seconds / 60) + ":" +
+    String(Math.floor(seconds % 60)).padStart(2,"0");
+}
+
+function showStatus(message){
+  const status = $("audio-status");
+  status.textContent = message;
+  status.hidden = !message;
+}
+
+function updateFavoriteButton(){
+  const button = $("audio-current-favorite");
+  if(button) button.textContent = favorites.has(currentId) ? "♥" : "♡";
+}
+
+function renderList(){
+  list.replaceChildren();
+  const items = getVisibleTracks();
+
+  $("audio-total").textContent =
+    items.length.toLocaleString("bn-BD") + "টি অডিও";
+
+  if(!items.length){
+    const empty = document.createElement("div");
+    empty.className = "empty-message";
+    empty.textContent = mode === "favorites"
+      ? "এখনো কোনো অডিও ফেভারিট করা হয়নি। অডিওর পাশের ♡ চিহ্নে চাপ দিন।"
+      : "এই তালিকায় কোনো অডিও নেই।";
+    list.appendChild(empty);
+    return;
+  }
+
+  items.forEach((track,index)=>{
+    const row = document.createElement("div");
+    row.className = "audio-track";
+    if(track.id === currentId) row.classList.add("playing");
+
+    const select = document.createElement("button");
+    select.type = "button";
+    select.className = "track-select";
+    select.setAttribute("aria-label",track.title + " চালান");
+
+    const number = document.createElement("span");
+    number.className = "track-number";
+    number.textContent = String(index + 1).padStart(2,"0");
+
+    const nameBox = document.createElement("span");
+    nameBox.className = "track-name";
+
+    const title = document.createElement("strong");
+    title.textContent = track.title;
+
+    const subtitle = document.createElement("small");
+    subtitle.textContent = track.category;
+
+    nameBox.append(title,subtitle);
+
+    const playIcon = document.createElement("span");
+    playIcon.className = "track-play-icon";
+    playIcon.textContent = track.id === currentId && !audio.paused ? "Ⅱ" : "▶";
+
+    select.append(number,nameBox,playIcon);
+    select.addEventListener("click",()=>playTrack(track.id));
+
+    const fav = document.createElement("button");
+    fav.type = "button";
+    fav.className = "track-favorite";
+    fav.textContent = favorites.has(track.id) ? "♥" : "♡";
+    fav.setAttribute("aria-label","ফেভারিটে যোগ বা বাদ দিন");
+
+    fav.addEventListener("click",()=>{
+      if(favorites.has(track.id)) favorites.delete(track.id);
+      else favorites.add(track.id);
+
+      saveFavorites();
+      renderAll();
+    });
+
+    row.append(select,fav);
+    list.appendChild(row);
+  });
+}
+
+function renderAll(){
+  renderList();
+
+  document.querySelectorAll("[data-audio-mode]").forEach(button=>{
+    button.classList.toggle("active",button.dataset.audioMode === mode);
+  });
+}
+
+function playTrack(id){
+  const track = tracks.find(t => t.id === id);
+  if(!track) return;
+
+  currentId = id;
+  audio.src = track.src;
+  audio.load();
+
+  $("audio-current-title").textContent = track.title;
+  $("audio-current-category").textContent = track.category;
+  $("audio-progress").value = 0;
+  $("audio-current-time").textContent = "0:00";
+  $("audio-duration").textContent = "0:00";
+
+  showStatus("");
+  renderAll();
+
+  audio.play().then(()=>{
+    $("audio-play").textContent = "Ⅱ";
+    renderList();
+  }).catch(()=>{
+    $("audio-play").textContent = "▶";
+    showStatus("অডিও চালানো যায়নি। ইন্টারনেট সংযোগ বা MP3 লিংক পরীক্ষা করুন।");
+  });
+}
+
+function moveTrack(direction){
+  const items = getVisibleTracks();
+  if(!items.length) return;
+
+  let index = items.findIndex(t => t.id === currentId);
+
+  if(shuffle && items.length > 1){
+    let next;
+    do {
+      next = Math.floor(Math.random() * items.length);
+    } while(items[next].id === currentId);
+    playTrack(items[next].id);
+    return;
+  }
+
+  if(index < 0) index = direction > 0 ? -1 : 0;
+  index = (index + direction + items.length) % items.length;
+  playTrack(items[index].id);
+}
+
+function openLibrary(){
+  home.hidden = true;
+  library.hidden = false;
+  renderAll();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function closeLibrary(){
+  library.hidden = true;
+  home.hidden = false;
+  window.scrollTo({top:home.offsetTop,behavior:"smooth"});
+}
+
+libraryButton.addEventListener("click",openLibrary);
+backButton.addEventListener("click",closeLibrary);
+
+$("audio-play").addEventListener("click",()=>{
+  if(currentId === null){
+    const first = getVisibleTracks()[0];
+    if(first) playTrack(first.id);
+    return;
+  }
+
+  if(audio.paused){
+    audio.play().then(()=>{
+      $("audio-play").textContent = "Ⅱ";
+      renderList();
+    }).catch(()=>{
+      showStatus("অডিও চালানো যায়নি। অনলাইন লিংক পরীক্ষা করুন।");
+    });
+  }else{
+    audio.pause();
+  }
+});
+
+$("audio-previous").addEventListener("click",()=>moveTrack(-1));
+$("audio-next").addEventListener("click",()=>moveTrack(1));
+
+$("audio-repeat").addEventListener("click",()=>{
+  repeatOne = !repeatOne;
+  audio.loop = repeatOne;
+  $("audio-repeat").classList.toggle("selected",repeatOne);
+  $("audio-repeat").title = repeatOne
+    ? "একই অডিও পুনরাবৃত্তি চালু"
+    : "একই অডিও পুনরাবৃত্তি বন্ধ";
+});
+
+$("audio-shuffle").addEventListener("click",()=>{
+  shuffle = !shuffle;
+  $("audio-shuffle").classList.toggle("selected",shuffle);
+  $("audio-shuffle").title = shuffle
+    ? "এলোমেলো প্লে চালু"
+    : "এলোমেলো প্লে বন্ধ";
+});
+
+document.querySelectorAll("[data-audio-mode]").forEach(button=>{
+  button.addEventListener("click",()=>{
+    mode = button.dataset.audioMode;
+    renderAll();
+  });
+});
+
+audio.addEventListener("play",()=>{
+  $("audio-play").textContent = "Ⅱ";
+  renderList();
+});
+
+audio.addEventListener("pause",()=>{
+  $("audio-play").textContent = "▶";
+  renderList();
+});
+
+audio.addEventListener("timeupdate",()=>{
+  $("audio-current-time").textContent = formatTime(audio.currentTime);
+
+  if(Number.isFinite(audio.duration) && audio.duration > 0){
+    $("audio-progress").value = audio.currentTime / audio.duration * 100;
+  }
+});
+
+audio.addEventListener("loadedmetadata",()=>{
+  $("audio-duration").textContent = formatTime(audio.duration);
+});
+
+$("audio-progress").addEventListener("input",()=>{
+  if(Number.isFinite(audio.duration) && audio.duration > 0){
+    audio.currentTime = Number($("audio-progress").value) / 100 * audio.duration;
+  }
+});
+
+audio.addEventListener("ended",()=>{
+  if(!repeatOne) moveTrack(1);
+});
+
+audio.addEventListener("error",()=>{
+  if(currentId !== null){
+    showStatus("এই অডিওটি সার্ভার থেকে লোড হয়নি। অন্য অডিও চেষ্টা করুন অথবা MP3 লিংক পরিবর্তন করুন।");
+  }
+});
+renderAll();
+})();
+
+
+(function(){
+"use strict";
+const articles = [
+  {
+    id: 1,
+    category: "কুরআন শিক্ষা",
+    title: "শুদ্ধভাবে কুরআন তিলাওয়াত শেখার গুরুত্ব",
+    summary: "কুরআন তিলাওয়াতের শুদ্ধতা, মাখরাজ ও তাজবীদের প্রাথমিক বিষয়গুলো জানুন।",
+    image: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80",
+    body: `
+      <p>আল-কুরআন মহান আল্লাহ তাআলার বাণী। কুরআন যথাসম্ভব শুদ্ধভাবে পড়ার চেষ্টা করা প্রত্যেক মুসলিমের জন্য অত্যন্ত গুরুত্বপূর্ণ। আরবি হরফের সঠিক উচ্চারণ, মাখরাজ ও তাজবীদের নিয়ম জানা শুদ্ধ তিলাওয়াতের অন্যতম উপায়।</p>
+      <h3>কীভাবে শেখা শুরু করবেন?</h3>
+      <p>প্রথমে আরবি হরফের পরিচয় ও প্রতিটি হরফের মাখরাজ শিখুন। এরপর হরকত, সাকিন, তানভিন, মাদ এবং অন্যান্য মৌলিক নিয়ম অনুশীলন করুন।</p>
+      <p>অভিজ্ঞ শিক্ষকের কাছে পড়া শুনিয়ে ভুল সংশোধন করা উত্তম। প্রতিদিন অল্প সময় হলেও নিয়মিত অনুশীলন করুন।</p>
+      <h3>তাজবীদ শেখার উপকারিতা</h3>
+      <p>তাজবীদের নিয়ম জানলে কুরআনের হরফ ও শব্দ সঠিকভাবে উচ্চারণের অভ্যাস গড়ে ওঠে। শেখার সময় ধৈর্য ধরুন এবং নিজের সামর্থ্য অনুযায়ী নিয়মিত তিলাওয়াত করুন।</p>
+    `
+  },
+  {
+    id: 2,
+    category: "দোয়া ও যিকির",
+    title: "দৈনন্দিন জীবনে দোয়া ও যিকিরের গুরুত্ব",
+    summary: "প্রতিদিনের কাজে আল্লাহকে স্মরণ করার অভ্যাস কীভাবে গড়ে তুলবেন?",
+    image: "https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=900&q=80",
+    body: `
+      <p>দোয়া হলো আল্লাহ তাআলার কাছে প্রার্থনা করা। আর যিকিরের মাধ্যমে বান্দা আল্লাহকে স্মরণ করে। একজন মুসলিমের দৈনন্দিন জীবনে দোয়া ও যিকির গুরুত্বপূর্ণ স্থান দখল করে আছে।</p>
+      <h3>কোন সময় দোয়া পড়বেন?</h3>
+      <p>ঘুম থেকে ওঠা, ঘুমাতে যাওয়া, খাবার শুরু করা ও শেষ করা, ঘর থেকে বের হওয়া এবং অন্যান্য দৈনন্দিন কাজের জন্য হাদিসে বর্ণিত দোয়া শেখার চেষ্টা করুন।</p>
+      <h3>অভ্যাস গড়ে তোলার উপায়</h3>
+      <p>একসঙ্গে অনেক কিছু মুখস্থ করার পরিবর্তে প্রতিদিন একটি করে সহিহ দোয়া শিখুন। আরবি পাঠ, বাংলা উচ্চারণ ও অর্থ বুঝে শেখার চেষ্টা করুন।</p>
+      <p>দোয়া শেখার সময় নির্ভরযোগ্য কুরআন-হাদিসের গ্রন্থ বা যোগ্য আলেমের সাহায্য নিন।</p>
+    `
+  },
+  {
+    id: 3,
+    category: "ইসলামি জীবন",
+    title: "সন্তানদের ইসলামী শিক্ষায় গড়ে তোলার উপায়",
+    summary: "পরিবারে ভালোবাসা, আদব ও ইসলামী মূল্যবোধ শেখানোর কিছু কার্যকর উপায়।",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80",
+    body: `
+      <p>সন্তানদের উত্তম চরিত্র ও ইসলামী মূল্যবোধ শেখানোর ক্ষেত্রে পরিবারের ভূমিকা অত্যন্ত গুরুত্বপূর্ণ। ছোটবেলা থেকেই ভালোবাসা, ধৈর্য ও সুন্দর আচরণের মাধ্যমে তাদের শেখানো যায়।</p>
+      <h3>নিজে আদর্শ হয়ে উঠুন</h3>
+      <p>শিশুরা বড়দের আচরণ দেখে শেখে। তাই সত্য কথা বলা, আমানত রক্ষা, বড়দের সম্মান করা এবং অন্যের প্রতি দয়া দেখানোর অভ্যাস নিজের জীবনেও বজায় রাখুন।</p>
+      <h3>শেখাকে আনন্দদায়ক করুন</h3>
+      <p>ছোট ছোট গল্প, সহজ দোয়া, নবী-রাসুলদের জীবনী এবং বয়স উপযোগী কুরআন শিক্ষার মাধ্যমে শেখার আগ্রহ তৈরি করুন।</p>
+      <p>শিশুর বয়স ও সামর্থ্য অনুযায়ী শিক্ষা দিন। ভুল করলে অপমান না করে স্নেহের সঙ্গে সঠিক বিষয়টি বুঝিয়ে দিন।</p>
+    `
+  },
+  {
+    id: 4,
+    category: "তাজবীদ ও সিফাত",
+    title: "আরবি হরফের মাখরাজ ও সিফাত কেন শিখবেন?",
+    summary: "আরবি হরফের সঠিক উচ্চারণ ও বৈশিষ্ট্য শেখার প্রাথমিক ধারণা।",
+    image: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&w=900&q=80",
+    body: `
+      <p>মাখরাজ বলতে হরফ উচ্চারণের স্থান বোঝায়। সিফাত বলতে হরফের এমন বৈশিষ্ট্য বোঝায়, যা উচ্চারণের সময় প্রকাশ পায়। শুদ্ধ কুরআন তিলাওয়াতের জন্য এগুলো শেখা গুরুত্বপূর্ণ।</p>
+      <h3>কেন মাখরাজ শিখবেন?</h3>
+      <p>কিছু আরবি হরফের উচ্চারণস্থান কাছাকাছি হওয়ায় শিক্ষানবিশদের মধ্যে ভুল হতে পারে। নিয়মিত অনুশীলন ও শিক্ষকের কাছে পড়া শুনিয়ে এই ভুল সংশোধন করা যায়।</p>
+      <h3>কীভাবে অনুশীলন করবেন?</h3>
+      <p>একবারে কয়েকটি হরফ নিয়ে অনুশীলন করুন। হরফের নাম, উচ্চারণস্থান ও বৈশিষ্ট্য বুঝুন। এরপর শব্দ ও আয়াত পড়ার সময় সেই নিয়ম প্রয়োগ করুন।</p>
+      <p>শুধু লেখা পড়ে নয়, অভিজ্ঞ শিক্ষকের তিলাওয়াত শুনে এবং নিজের তিলাওয়াত শুনিয়ে অনুশীলন করাও উপকারী।</p>
+    `
+  }
+];
+
+const grid = document.getElementById("articleGrid");
+const reader = document.getElementById("articleReader");
+const readerContent = document.getElementById("readerContent");
+const allButton = document.getElementById("allArticlesButton");
+
+function renderArticles(items = articles) {
+  grid.innerHTML = items.map((article, index) => `
+    <div class="article-card reveal ${index % 2 === 0 ? "from-left" : "from-right"}"
+         style="transition-delay:${(index % 4) * 100}ms">
+      <div class="article-card-inner">
+        <div class="article-image-wrap">
+          <img
+            class="article-image"
+            src="${article.image}"
+            alt="${article.title}"
+            loading="lazy"
+            onerror="this.style.display='none'"
+          >
+          <span class="article-category">${article.category}</span>
+        </div>
+        <div class="article-content">
+          <h3>${article.title}</h3>
+          <p>${article.summary}</p>
+          <button class="read-button" type="button"
+                  onclick="openArticle(${article.id})">
+            বিস্তারিত পড়ুন →
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  observeReveals();
+}
+
+function openArticle(id) {
+  const article = articles.find(item => item.id === id);
+  if (!article) return;
+
+  grid.style.display = "none";
+  allButton.style.display = "none";
+  document.querySelector("#islamic-articles .section-heading").style.display = "none";
+
+  readerContent.innerHTML = `
+    <img class="reader-image"
+         src="${article.image}"
+         alt="${article.title}"
+         onerror="this.style.display='none'">
+    <div class="reader-category">${article.category}</div>
+    <h2>${article.title}</h2>
+    <div class="reader-body">${article.body}</div>
+  `;
+
+  reader.classList.add("active");
+  document.getElementById("islamic-articles").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+
+  history.replaceState({ articleId: id }, "", "#article-" + id);
+}
+
+function backToArticles() {
+  reader.classList.remove("active");
+  grid.style.display = "grid";
+  allButton.style.display = "block";
+  document.querySelector("#islamic-articles .section-heading").style.display = "block";
+
+  history.replaceState({}, "", location.pathname + location.search);
+  observeReveals();
+
+  document.getElementById("islamic-articles").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+function showAllArticles() {
+  grid.style.display = "grid";
+  observeReveals();
+}
+
+let revealObserver;
+
+function observeReveals() {
+  if (revealObserver) revealObserver.disconnect();
+
+  revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll("#islamic-articles .reveal:not(.visible)")
+    .forEach(element => revealObserver.observe(element));
+}
+
+renderArticles();
+observeReveals();
+window.openArticle = openArticle;
+window.backToArticles = backToArticles;
+window.showAllArticles = showAllArticles;
+})();
+
+
+/* আমাদের বৈশিষ্ট্য সেকশনের স্ক্রল অ্যানিমেশন */
+(function () {
+  function initMteFeatures() {
+    const sections = document.querySelectorAll(".mte-features-section");
+    if (!sections.length) return;
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("mte-features-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -25px 0px"
+      });
+
+      sections.forEach(function (section) {
+        observer.observe(section);
+      });
+    } else {
+      sections.forEach(function (section) {
+        section.classList.add("mte-features-visible");
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMteFeatures, { once: true });
+  } else {
+    initMteFeatures();
+  }
+})();
+
+
+
+/*
+=========================================================
+শিক্ষক যোগ করার নিয়ম
+
+১. নিচের teachers তালিকায় নতুন শিক্ষক যোগ করুন।
+২. প্রতিটি id আলাদা হতে হবে।
+৩. photo-তে ছবির সঠিক URL দিন।
+৪. পরিচিতি, অভিজ্ঞতা ও শিক্ষাদর্শ লিখুন।
+৫. ডিজাইন পরিবর্তন করতে style.css সম্পাদনা করুন।
+=========================================================
+*/
+
+const teachers = [
+
+  /* শিক্ষক ১ */
+  {
+    id: 1,
+    name: "আবু ত্বহা মোহাম্মদ সাইফুল ইসলাম",
+    role: "শিক্ষক · লেখক · শিক্ষানুরাগী",
+
+    photo: "https://01638816760.supabase.co/storage/v1/object/public/Amar-boi/01638816760.jpg",
+
+    shortBio:
+      "ইসলামি শিক্ষা, কুরআন শিক্ষার প্রসার এবং প্রযুক্তির মাধ্যমে শিক্ষাকে সহজলভ্য করার কাজে আগ্রহী।",
+
+    tags: [
+      "📖 কুরআন শিক্ষা",
+      "✍️ লেখালেখি",
+      "💻 ওয়েব ডেভেলপমেন্ট"
+    ],
+
+    intro:
+      "আসসালামু আলাইকুম ওয়া রহমাতুল্লাহ। আমি আবু ত্বহা মোহাম্মদ সাইফুল ইসলাম। ইসলামি শিক্ষা, কুরআন শিক্ষার প্রসার এবং শিক্ষার্থীদের জ্ঞান ও নৈতিকতা বিকাশে আন্তরিকভাবে কাজ করতে আগ্রহী।",
+
+    mission:
+      "আমার লক্ষ্য হলো সহজ, সুন্দর ও বোধগম্য পদ্ধতিতে প্রয়োজনীয় ইসলামি জ্ঞান মানুষের কাছে পৌঁছে দেওয়া। প্রযুক্তির সহায়তায় শিক্ষামূলক বই, পাঠ, দোয়া, আর্টিকেল ও অন্যান্য উপকারী রিসোর্স সবার কাছে সহজলভ্য করার চেষ্টা করছি।",
+
+    educationTitle: "শিক্ষাদর্শ",
+
+    education:
+      "শিক্ষা শুধু তথ্য অর্জনের নাম নয়; বরং জ্ঞানকে সঠিকভাবে বোঝা, আমলে আনার চেষ্টা করা এবং সুন্দর চরিত্র গড়ে তোলাও শিক্ষার গুরুত্বপূর্ণ উদ্দেশ্য। তাই সহজ ব্যাখ্যা, নিয়মিত অনুশীলন, ধৈর্য ও শিক্ষার্থীর সামর্থ্য অনুযায়ী পাঠদানকে গুরুত্ব দিই।",
+
+    experienceTitle: "অভিজ্ঞতা ও আগ্রহ",
+
+    experience:
+      "ইসলামি শিক্ষা ও লেখালেখির পাশাপাশি শিক্ষামূলক ওয়েবসাইট তৈরি, ডিজিটাল রিসোর্স সাজানো এবং প্রযুক্তির মাধ্যমে শেখার সুযোগ সহজ করার বিষয়ে আগ্রহী।",
+
+    values: [
+      {
+        icon: "📖",
+        title: "বিশুদ্ধ জ্ঞান",
+        description: "কুরআন ও নির্ভরযোগ্য সুন্নাহভিত্তিক শিক্ষা"
+      },
+      {
+        icon: "🌱",
+        title: "উত্তম চরিত্র",
+        description: "আদব, শিষ্টাচার ও নৈতিকতার চর্চা"
+      },
+      {
+        icon: "💡",
+        title: "সহজ শিক্ষা",
+        description: "সহজ ভাষায় শেখা ও নিয়মিত অনুশীলন"
+      }
+    ],
+
+    quote:
+      "জ্ঞান অর্জন, উত্তম চরিত্র গঠন এবং অর্জিত জ্ঞান মানুষের কল্যাণে কাজে লাগানোর প্রচেষ্টাই হোক আমাদের পথচলা।",
+
+    quoteBy: "শিক্ষাদর্শ ও অঙ্গীকার",
+
+    phone: "8801638816760",
+    email: "Si1993.sm@email.com"
+  },
+
+  /* শিক্ষক ২ — নমুনা তথ্য */
+  {
+    id: 2,
+    name: "দ্বিতীয় শিক্ষকের নাম",
+    role: "শিক্ষক · ইসলামি শিক্ষা",
+    photo: "",
+
+    shortBio:
+      "এখানে দ্বিতীয় শিক্ষকের সংক্ষিপ্ত পরিচিতি লিখুন।",
+
+    tags: [
+      "📖 কুরআন শিক্ষা",
+      "🌱 আদব ও আখলাক"
+    ],
+
+    intro:
+      "এখানে দ্বিতীয় শিক্ষকের পরিচয়, শিক্ষা ও কাজের প্রতি আগ্রহ সম্পর্কে লিখুন।",
+
+    mission:
+      "এখানে তাঁর শিক্ষাদানের লক্ষ্য এবং শিক্ষার্থীদের উপকারে তাঁর কাজের উদ্দেশ্য লিখুন।",
+
+    educationTitle: "শিক্ষাদর্শ",
+
+    education:
+      "এখানে দ্বিতীয় শিক্ষকের শিক্ষাদর্শ, পাঠদানের পদ্ধতি এবং শিক্ষার্থীদের প্রতি দৃষ্টিভঙ্গি লিখুন।",
+
+    experienceTitle: "অভিজ্ঞতা ও আগ্রহ",
+
+    experience:
+      "এখানে তাঁর প্রকৃত শিক্ষাগত যোগ্যতা, শিক্ষকতার অভিজ্ঞতা ও সংশ্লিষ্ট কাজের তথ্য যোগ করুন।",
+
+    values: [
+      {
+        icon: "📖",
+        title: "বিশুদ্ধ জ্ঞান",
+        description: "নির্ভরযোগ্য জ্ঞান শেখার প্রচেষ্টা"
+      },
+      {
+        icon: "🌱",
+        title: "উত্তম চরিত্র",
+        description: "আদব ও আখলাকের চর্চা"
+      },
+      {
+        icon: "💡",
+        title: "সহজ শিক্ষা",
+        description: "সহজভাবে বোঝানো ও অনুশীলন"
+      }
+    ],
+
+    quote:
+      "জ্ঞান অর্জন, উত্তম চরিত্র গঠন এবং অর্জিত জ্ঞান মানুষের কল্যাণে কাজে লাগানোর প্রচেষ্টাই হোক আমাদের পথচলা।",
+
+    quoteBy: "শিক্ষাদর্শ ও অঙ্গীকার",
+
+    phone: "8801638816760",
+    email: "Si1993.sm@email.com"
+  },
+
+  /* শিক্ষক ৩ — নমুনা তথ্য */
+  {
+    id: 3,
+    name: "তৃতীয় শিক্ষকের নাম",
+    role: "শিক্ষক · শিক্ষানুরাগী",
+    photo: "",
+
+    shortBio:
+      "এখানে তৃতীয় শিক্ষকের সংক্ষিপ্ত পরিচিতি লিখুন।",
+
+    tags: [
+      "📚 ইসলামি শিক্ষা",
+      "🌿 শিক্ষাদান"
+    ],
+
+    intro:
+      "এখানে তৃতীয় শিক্ষকের পরিচয়, শিক্ষার প্রতি আগ্রহ এবং কাজের উদ্দেশ্য লিখুন।",
+
+    mission:
+      "এখানে তাঁর শিক্ষাদানের লক্ষ্য এবং শিক্ষার্থীদের উপকারে কীভাবে কাজ করেন তা লিখুন।",
+
+    educationTitle: "শিক্ষাদর্শ",
+
+    education:
+      "এখানে তৃতীয় শিক্ষকের শিক্ষাদর্শ ও পাঠদানের পদ্ধতি সম্পর্কে লিখুন।",
+
+    experienceTitle: "অভিজ্ঞতা ও আগ্রহ",
+
+    experience:
+      "এখানে তাঁর প্রকৃত যোগ্যতা, শিক্ষকতার অভিজ্ঞতা এবং বিশেষ আগ্রহের বিষয়গুলো লিখুন।",
+
+    values: [
+      {
+        icon: "📖",
+        title: "বিশুদ্ধ জ্ঞান",
+        description: "নির্ভরযোগ্য জ্ঞান শেখার প্রচেষ্টা"
+      },
+      {
+        icon: "🌱",
+        title: "উত্তম চরিত্র",
+        description: "আদব ও আখলাকের চর্চা"
+      },
+      {
+        icon: "💡",
+        title: "সহজ শিক্ষা",
+        description: "সহজভাবে বোঝানো ও অনুশীলন"
+      }
+    ],
+
+    quote:
+      "জ্ঞান অর্জন, উত্তম চরিত্র গঠন এবং অর্জিত জ্ঞান মানুষের কল্যাণে কাজে লাগানোর প্রচেষ্টাই হোক আমাদের পথচলা।",
+
+    quoteBy: "শিক্ষাদর্শ ও অঙ্গীকার",
+
+    phone: "8801638816760",
+    email: "Si1993.sm@email.com"
+  },
+
+];
+
+/* =========================================
+   PLACEHOLDER PHOTO
+========================================= */
+
+function getTeacherPhoto(url) {
+  if (url && url.trim()) {
+    return url.trim();
+  }
+
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 360">
+      <rect width="300" height="360" fill="#e8f1e9"/>
+      <circle cx="150" cy="112" r="54" fill="#b8d4bd"/>
+      <path d="M45 320c8-88 48-130 105-130s97 42 105 130"
+            fill="#b8d4bd"/>
+      <text x="150" y="345" font-size="17" text-anchor="middle"
+            fill="#075b3a" font-family="sans-serif">শিক্ষকের ছবি</text>
+    </svg>
+  `;
+
+  return "data:image/svg+xml;charset=UTF-8," +
+    encodeURIComponent(svg);
+}
+
+/* =========================================
+   SAFE HTML TEXT
+========================================= */
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+/* =========================================
+   TEACHER PHOTO
+========================================= */
+
+function photoHTML(url, className, name) {
+  return `
+    <img
+      class="${className}"
+      src="${getTeacherPhoto(url)}"
+      alt="${escapeHTML(name)}"
+      loading="lazy"
+      onerror="this.onerror=null;this.src='${getTeacherPhoto("")}'"
+    >
+  `;
+}
+
+/* =========================================
+   RENDER TEACHER CARDS
+========================================= */
+
+function renderTeachers() {
+  const grid = document.getElementById("teacherGrid");
+
+  grid.innerHTML = teachers.map((teacher, index) => `
+    <article
+      class="teacher-card"
+      style="transition-delay:${(index % 3) * 100}ms">
+
+      <div class="teacher-card-inner">
+
+        <div class="teacher-photo-frame">
+          ${photoHTML(
+            teacher.photo,
+            "teacher-photo",
+            teacher.name
+          )}
+        </div>
+
+        <h3 class="teacher-name">
+          ${escapeHTML(teacher.name)}
+        </h3>
+
+        <div class="teacher-role">
+          ${escapeHTML(teacher.role)}
+        </div>
+
+        <p class="teacher-short-bio">
+          ${escapeHTML(teacher.shortBio)}
+        </p>
+
+        <button
+          type="button"
+          class="teacher-read-btn"
+          data-teacher-id="${teacher.id}"
+          aria-label="${escapeHTML(teacher.name)} সম্পর্কে বিস্তারিত পড়ুন">
+          বিস্তারিত পরিচিতি পড়ুন →
+        </button>
+
+      </div>
+    </article>
+  `).join("");
+
+  grid.querySelectorAll("[data-teacher-id]").forEach(button => {
+    button.addEventListener("click", () => {
+      showTeacherDetail(Number(button.dataset.teacherId));
+    });
+  });
+
+  observeTeacherCards();
+}
+
+/* =========================================
+   SHOW TEACHER DETAILS
+========================================= */
+
+function showTeacherDetail(id) {
+  const teacher = teachers.find(item => item.id === id);
+
+  if (!teacher) return;
+
+  const valuesHTML = teacher.values.map(value => `
+    <div class="value-card">
+      <div class="value-icon">
+        ${escapeHTML(value.icon)}
+      </div>
+      <h4>${escapeHTML(value.title)}</h4>
+      <p>${escapeHTML(value.description)}</p>
+    </div>
+  `).join("");
+
+  const tagsHTML = teacher.tags.map(tag => `
+    <span>${escapeHTML(tag)}</span>
+  `).join("");
+
+  let contactHTML = "";
+
+  if (teacher.phone) {
+    const phone = teacher.phone.replace(/[^\d]/g, "");
+
+    contactHTML += `
+      <a
+        class="contact-link primary"
+        href="https://wa.me/${phone}"
+        target="_blank"
+        rel="noopener noreferrer">
+        💬 WhatsApp-এ যোগাযোগ
+      </a>
+    `;
+  }
+
+  if (teacher.email) {
+    contactHTML += `
+      <a
+        class="contact-link"
+        href="mailto:${escapeHTML(teacher.email)}">
+        ✉️ ইমেইল করুন
+      </a>
+    `;
+  }
+
+  document.getElementById("teacherDetailContent").innerHTML = `
+    <div class="detail-profile">
+
+      <div class="detail-profile-left">
+
+        <div class="detail-photo-frame">
+          ${photoHTML(
+            teacher.photo,
+            "detail-photo",
+            teacher.name
+          )}
+        </div>
+
+        <h2 class="detail-name">
+          ${escapeHTML(teacher.name)}
+        </h2>
+
+        <p class="detail-role">
+          ${escapeHTML(teacher.role)}
+        </p>
+
+        <div class="profile-tags">
+          ${tagsHTML}
+        </div>
+
+      </div>
+
+      <div class="detail-content">
+
+        <h3>আমার পরিচয় ও লক্ষ্য</h3>
+
+        <p>${escapeHTML(teacher.intro)}</p>
+        <p>${escapeHTML(teacher.mission)}</p>
+
+        <div class="detail-block">
+          <h4>🎓 ${escapeHTML(teacher.educationTitle)}</h4>
+          <p>${escapeHTML(teacher.education)}</p>
+        </div>
+
+        <div class="detail-block">
+          <h4>📚 ${escapeHTML(teacher.experienceTitle)}</h4>
+          <p>${escapeHTML(teacher.experience)}</p>
+        </div>
+
+        <div class="values-grid">
+          ${valuesHTML}
+        </div>
+
+        <div class="teacher-quote">
+          <div class="quote-icon">❝</div>
+          <p>${escapeHTML(teacher.quote)}</p>
+          <small>— ${escapeHTML(teacher.quoteBy)}</small>
+        </div>
+
+        ${
+          contactHTML
+            ? `<div class="detail-contact">${contactHTML}</div>`
+            : ""
+        }
+
+      </div>
+    </div>
+  `;
+
+  const detail = document.getElementById("teacherDetail");
+
+  detail.classList.add("active");
+
+  detail.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+/* =========================================
+   BACK TO TEACHER DIRECTORY
+========================================= */
+
+function closeTeacherDetail() {
+  const detail = document.getElementById("teacherDetail");
+
+  detail.classList.remove("active");
+
+  document.getElementById("teacher-profile").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+/* =========================================
+   TEACHER CARD SCROLL ANIMATION
+========================================= */
+
+let teacherObserver;
+
+function observeTeacherCards() {
+  const cards = document.querySelectorAll(".teacher-card");
+
+  if (!("IntersectionObserver" in window)) {
+    cards.forEach(card => card.classList.add("visible"));
+    return;
+  }
+
+  if (teacherObserver) {
+    teacherObserver.disconnect();
+  }
+
+  teacherObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        teacherObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12
+  });
+
+  cards.forEach(card => teacherObserver.observe(card));
+}
+
+/* =========================================
+   HEADING SCROLL ANIMATION
+========================================= */
+
+function observeHeading() {
+  const heading = document.querySelector(".section-heading");
+
+  if (!heading) return;
+
+  if (!("IntersectionObserver" in window)) {
+    heading.classList.add("visible");
+    return;
+  }
+
+  const headingObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        headingObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  headingObserver.observe(heading);
+}
+
+/* =========================================
+   INITIALIZE
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderTeachers();
+  observeHeading();
+
+  const backButton = document.getElementById("teacherDetailBack");
+
+  if (backButton) {
+    backButton.addEventListener("click", closeTeacherDetail);
+  }
+});
