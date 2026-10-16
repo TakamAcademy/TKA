@@ -1094,6 +1094,181 @@
   </div>
 </section>
 
+<!-- রাউটিংয়ের নিচে বসানোর HTML -->
+<section class="article-section" id="islamic-articles">
+  <div class="article-container">
+
+    <div class="section-heading reveal">
+      <span class="heading-badge">📚 ইসলামী জ্ঞানচর্চা</span>
+      <h2>ইসলামিক <span>আর্টিকেল</span></h2>
+      <p>
+        কুরআন ও সুন্নাহর আলোকে ইসলাম জানুন, শিখুন এবং
+        নিজের দৈনন্দিন জীবনে ইসলামের শিক্ষা বাস্তবায়ন করুন।
+      </p>
+    </div>
+
+    <div class="article-grid" id="articleGrid"></div>
+
+    <div class="all-articles" id="allArticlesButton">
+      <button type="button" onclick="showAllArticles()">
+        📖 সব আর্টিকেল দেখুন
+      </button>
+    </div>
+
+    <article class="article-reader" id="articleReader" aria-live="polite">
+      <button class="back-button" type="button" onclick="backToArticles()">
+        ← আর্টিকেলের তালিকায় ফিরুন
+      </button>
+      <div id="readerContent"></div>
+    </article>
+
+
+  </div>
+</section>
+
+
+<!-- আমাদের বৈশিষ্ট্য সেকশন: index.html-এর নির্দিষ্ট রাউট/পেজের ভিতরে বসান -->
+<div class="mte-features-widget">
+  <main>
+    <section
+      class="mte-features-section"
+      aria-labelledby="mte-features-title"
+    >
+
+      <header class="mte-features-heading">
+        <span class="mte-features-badge">আমাদের বৈশিষ্ট্য</span>
+
+        <h1 id="mte-features-title">
+          কেন আমাদের কাছে শিখবেন?
+        </h1>
+
+        <p>
+          সহজ, নিখুঁত ও বিশুদ্ধ দ্বীনি শিক্ষা নিশ্চিত করতে
+          আমাদের বিশেষ সেবাসমূহ
+        </p>
+      </header>
+
+      <div class="mte-features-grid">
+
+        <article class="mte-features-card">
+          <div class="mte-features-icon" aria-hidden="true">📖</div>
+          <h2>সহজ ও নিখুঁত পদ্ধতি</h2>
+          <p>
+            জটিল নিয়ম এড়িয়ে একদম নতুনদের জন্য সহজবোধ্য
+            পদ্ধতিতে তাজবীদ ও কায়দা শেখানো হয়।
+          </p>
+        </article>
+
+        <article class="mte-features-card">
+          <div class="mte-features-icon" aria-hidden="true">👨‍🏫</div>
+          <h2>অভিজ্ঞ ও দক্ষ শিক্ষক</h2>
+          <p>
+            মাদ্রাসা শিক্ষক ও ইসলামিক চিন্তাবিদের সরাসরি
+            তত্ত্বাবধানে মানসম্মত শিক্ষা প্রদান।
+          </p>
+        </article>
+
+        <article class="mte-features-card">
+          <div class="mte-features-icon" aria-hidden="true">💻</div>
+          <h2>অনলাইন ও নমনীয় সময়</h2>
+          <p>
+            নিজের সুবিধাজনক সময়ে ঘরে বসেই কোর্স ও
+            ক্লাসে যুক্ত হওয়ার সুযোগ।
+          </p>
+        </article>
+
+        <article class="mte-features-card">
+          <div class="mte-features-icon" aria-hidden="true">📚</div>
+          <h2>বিনামূল্যে রিসোর্স ও PDF</h2>
+          <p>
+            প্রতিটি কোর্সের সাথে প্রয়োজনীয় ক্লাস নোট,
+            পিডিএফ বই ও অনুশীলন শিট প্রদান।
+          </p>
+        </article>
+
+        <article class="mte-features-card">
+          <div class="mte-features-icon" aria-hidden="true">🕌</div>
+          <h2>বিশুদ্ধ দ্বীনি শিক্ষা</h2>
+          <p>
+            কুরআন ও সুন্নাহর আলোকে প্রয়োজনীয় দ্বীনি
+            জ্ঞান অর্জনে সহায়তা।
+          </p>
+        </article>
+
+        <article class="mte-features-card">
+          <div class="mte-features-icon" aria-hidden="true">🎯</div>
+          <h2>ধাপে ধাপে পাঠদান</h2>
+          <p>
+            শিক্ষার্থীর দক্ষতা অনুযায়ী সহজ থেকে
+            উন্নত পর্যায়ে শেখার ব্যবস্থা।
+          </p>
+        </article>
+
+        <article class="mte-features-card">
+          <div class="mte-features-icon" aria-hidden="true">📝</div>
+          <h2>অনুশীলন ও মূল্যায়ন</h2>
+          <p>
+            শেখা বিষয়গুলো অনুশীলন এবং অগ্রগতি
+            যাচাইয়ের সুযোগ।
+          </p>
+        </article>
+
+        <article class="mte-features-card">
+          <div class="mte-features-icon" aria-hidden="true">🤝</div>
+          <h2>শিক্ষার্থীর সহযোগিতা</h2>
+          <p>
+            পড়াশোনার প্রয়োজনে নির্দেশনা ও
+            প্রয়োজনীয় সহযোগিতা প্রদান।
+          </p>
+        </article>
+
+      </div>
+
+      <footer class="mte-features-footer">
+        কুরআন ও ইসলামিক শিক্ষায় আপনার বিশ্বস্ত সহযোগী
+      </footer>
+
+    </section>
+
+
+
+<!-- ===== আমাদের শিক্ষকবৃন্দ সেকশন শুরু ===== -->
+<section class="teacher-section" id="teacher-profile">
+  <div class="teacher-container">
+
+    <header class="section-heading reveal">
+      <span class="section-tag">🌿 পরিচিত হোন শিক্ষকদের সঙ্গে</span>
+
+      <h2>
+        আমাদের শিক্ষকবৃন্দ ও <span>শিক্ষাদর্শ</span>
+      </h2>
+
+      <p>
+        বিশুদ্ধ ইসলামি জ্ঞানচর্চা, সুন্দর চরিত্র গঠন
+        এবং সহজ পদ্ধতিতে শিক্ষা পৌঁছে দেওয়ার প্রত্যয়ে।
+      </p>
+    </header>
+
+    <!-- শিক্ষক কার্ড JavaScript দিয়ে তৈরি হবে -->
+    <div class="teacher-grid" id="teacherGrid"></div>
+
+    <!-- শিক্ষকের বিস্তারিত পরিচিতি -->
+    <div class="teacher-detail" id="teacherDetail" aria-live="polite">
+      <button
+        type="button"
+        class="detail-back"
+        id="teacherDetailBack">
+        ← শিক্ষকবৃন্দের তালিকায় ফিরুন
+      </button>
+
+      <div id="teacherDetailContent"></div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== আমাদের শিক্ষকবৃন্দ সেকশন শেষ ===== -->
+
+
 
 <!-- ================= AUDIO RECITATION SECTION ================= -->
 <section class="audio-section">
@@ -1143,6 +1318,107 @@
     </div>
   </div>
 </section>
+
+<!-- রাউটিংয়ের নিচে এই HTML অংশটি বসান -->
+<section id="mte-audio-home" class="mte-audio-home">
+  <div class="mte-audio-home-inner">
+    <div class="home-emblem">♫</div>
+    <span class="home-eyebrow">🎧 শুনুন ও শিখুন</span>
+    <h2>অডিও গ্যালারি</h2>
+    <p>
+      কুরআন তিলাওয়াত ও ইসলামিক শিক্ষার অডিও
+      শুনতে প্রবেশ করুন আমাদের অডিও লাইব্রেরিতে।
+    </p>
+
+    <div class="wave-decoration" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+
+    <button type="button" id="mte-open-audio-library"
+      class="home-open-btn">
+      <span>♫</span> সব অডিও শুনুন <span>↗</span>
+    </button>
+
+    <div class="home-bottom">
+      <span>কুরআন তিলাওয়াত</span><i></i>
+      <span>ইসলামিক শিক্ষা</span><i></i>
+      <span>অডিও লাইব্রেরি</span>
+    </div>
+  </div>
+</section>
+
+
+<section id="mte-audio-library" class="mte-audio-library" hidden>
+  <div class="library-hero">
+    <button type="button" id="mte-audio-back" class="back-home">
+      ← হোম পেজে ফিরে যান
+    </button>
+    <div class="library-icon">♫</div>
+    <span class="library-label">MADRASA TEACHER</span>
+    <h2>সম্পূর্ণ অডিও লাইব্রেরি</h2>
+    <p>আপনার পছন্দের তিলাওয়াত নির্বাচন করুন ও শুনুন</p>
+  </div>
+
+  <div class="library-content">
+    <div class="audio-player-card">
+
+      <div class="audio-artwork">
+        <div class="artwork-inner">
+          <span>۞</span>
+          <strong>القرآن الكريم</strong>
+          <small>HOLY QURAN</small>
+        </div>
+      </div>
+
+      <div class="now-playing-label">
+        <span class="playing-dot"></span> এখন চলছে
+      </div>
+
+      <h3 id="audio-current-title">সূরা নির্বাচন করুন</h3>
+      <p id="audio-current-category">কুরআনুল কারীম · তিলাওয়াত</p>
+
+      <audio id="mte-audio-element" preload="none"></audio>
+
+      <div class="audio-timeline">
+        <span id="audio-current-time">0:00</span>
+        <input id="audio-progress" type="range" min="0" max="100"
+          value="0" aria-label="অডিওর অবস্থান">
+        <span id="audio-duration">0:00</span>
+      </div>
+
+      <div class="player-controls">
+        <button type="button" id="audio-shuffle" title="এলোমেলো প্লে">⤨</button>
+        <button type="button" id="audio-previous" title="আগের অডিও">⏮</button>
+        <button type="button" id="audio-play" class="play-main">▶</button>
+        <button type="button" id="audio-next" title="পরের অডিও">⏭</button>
+        <button type="button" id="audio-repeat" title="পুনরাবৃত্তি">↻</button>
+      </div>
+
+      <div class="audio-mode-tabs">
+        <button type="button" data-audio-mode="all" class="active">☷ সব অডিও</button>
+        <button type="button" data-audio-mode="album">▤ অ্যালবাম</button>
+        <button type="button" data-audio-mode="favorites">♡ ফেভারিট</button>
+      </div>
+
+      <p id="audio-status" class="audio-status" role="status" hidden></p>
+    </div>
+
+    <div class="audio-list-section">
+      <div class="audio-list-heading">
+        <div>
+          <span class="list-eyebrow">YOUR COLLECTION</span>
+          <h3>অডিওর তালিকা</h3>
+        </div>
+        <span id="audio-total" class="audio-total">৫টি অডিও</span>
+      </div>
+      <div id="mte-audio-track-list" class="audio-track-list"></div>
+    </div>
+  </div>
+</section>
+
+
 
 <!-- ইমেজ স্লাইডার সেকশন শুরু -->
 <section class="slider-wrapper">
@@ -1949,6 +2225,7 @@
   </div>
 
 </div>
+
 
 </div>
 </body>
